@@ -90,7 +90,7 @@
 
 </div>
 
-<a href="{{ route('export.pdf') }}" class="btn btn-primary">Export as PDF</a>
+<a href="{{-- {{ route('export.pdf') }} --}}" class="btn btn-primary">Export as PDF</a>
 
 
 @endsection
