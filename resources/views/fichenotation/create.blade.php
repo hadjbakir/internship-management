@@ -470,14 +470,22 @@
                 @csrf
 
 
-                <div class="db">
-                    <label for="university_id" class="jc un zn gs fb">demande id</label>
-                    <select name="demande_id" class="form-control">
-                        @foreach($demande as $demande)
-                            <option value="{{ $demande->id }}">{{ $demande->id }}</option>
-                        @endforeach
-                    </select>
-                </div>
+                <div class="db" >
+                    <label
+                      class="jc un zn gs fb"
+                      for="firstName"
+                      >DEMANDE</label
+                    >
+                    <input
+
+                      class="kkk nj qh ni bj jr fr ps zn gs il cm zr wr"
+                      type="text"
+                      name="demande_id"
+
+                      placeholder="demande_id"
+                      value="{{$demandeId}}"
+                    />
+                  </div>
             <div class="db" >
               <label
                 class="jc un zn gs fb"
@@ -485,10 +493,12 @@
                 >Discipline</label
               >
               <input
+              id="input1" min="0" max="4"
+              oninput="validateInput(this); calculateSum()"
                 class="kkk nj qh ni bj jr fr ps zn gs il cm zr wr"
-                type="text"
+                type="number"
                 name="discipline"
-                id="firstName"
+
                 placeholder="discipline"
                 value=""
               />
@@ -500,10 +510,12 @@
                   >Aptitude</label
                 >
                 <input
+                id="input2" min="0" max="4"
+                oninput="validateInput(this); calculateSum()"
                   class="kkk nj qh ni bj jr fr ps zn gs il cm zr wr"
-                  type="text"
+                  type="number"
                   name="aptitude"
-                  id="firstName"
+
                   placeholder="aptitude"
                   value=""
                 />
@@ -514,13 +526,15 @@
                     <label
                       class="jc un zn gs fb"
                       for="lastName"
-                      >Initiative</label
+                      >Imagination</label
                     >
                     <input
+                    id="input3" min="0" max="4"
+                    oninput="validateInput(this); calculateSum()"
                       class="kkk nj qh ni bj jr fr ps zn gs il cm zr wr"
-                      type="text"
+                      type="number"
                       name="imagination"
-                      id="lastName"
+
                       placeholder="imagination"
                       value=""
                     />
@@ -529,13 +543,15 @@
                     <label
                       class="jc un zn gs fb"
                       for="lastName"
-                      >Imagination</label
+                      >conaissance</label
                     >
                     <input
+                    id="input4" min="0" max="4"
+                    oninput="validateInput(this); calculateSum()"
                       class="kkk nj qh ni bj jr fr ps zn gs il cm zr wr"
-                      type="text"
+                      type="number"
                       name="conaissance"
-                      id="lastName"
+
                       placeholder="conaissance"
                       value=""
                     />
@@ -544,13 +560,15 @@
                     <label
                       class="jc un zn gs fb"
                       for="lastName"
-                      >Conaissance</label
+                      >initiative</label
                     >
                     <input
+                    id="input5"  min="0" max="4"
+                     oninput="validateInput(this); calculateSum()"
                       class="kkk nj qh ni bj jr fr ps zn gs il cm zr wr"
-                      type="text"
+                      type="number"
                       name="initiative"
-                      id="lastName"
+
                       placeholder="initiative"
                       value=""
                     />
@@ -565,9 +583,7 @@
                       class="kkk nj qh ni bj jr fr ps zn gs il cm zr wr"
                       type="text"
                       name="note"
-                      id="lastName"
-                      placeholder="note"
-                      value=""
+                      id="note" readonly
                     />
                   </div>
                   <div class="db">
@@ -709,7 +725,43 @@
 <script src="{{asset('newpart/assets/js/material-dashboard.minaf3e.js?v=3.0.6')}}"></script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v52afc6f149f6479b8c77fa569edb01181681764108816" integrity="sha512-jGCTpDpBAYDGNYR5ztKt4BQPGef1P0giN6ZGVUi835kFF88FOmmn8jBQWNgrNd8g/Yu421NdgWhwQoaOPFflDw==" data-cf-beacon='{"rayId":"7ca32015cc155233","version":"2023.4.0","r":1,"b":1,"token":"1b7cbb72744b40c580f8633c6b62637e","si":100}' crossorigin="anonymous"></script>
 
-        <script defer src="{{asset('parts/bundle.js')}}"></script></body>
+        <script defer src="{{asset('parts/bundle.js')}}"></script>
+        <script>
+   function validateInput(input) {
+    const value = parseInt(input.value);
+    const isValid = !isNaN(value) && value >= 0 && value <= 4;
+
+    if (isValid) {
+      input.style.border = '1px solid black';
+      input.removeAttribute('placeholder');
+    } else {
+      input.style.border = '1px solid red';
+      input.placeholder = 'Please enter a number between 0 and 4';
+      input.value = ''; // Remove invalid value
+      calculateSum();
+    }
+  }
+
+  function calculateSum() {
+    const input1 = parseInt(document.getElementById('input1').value) || 0;
+    const input2 = parseInt(document.getElementById('input2').value) || 0;
+    const input3 = parseInt(document.getElementById('input3').value) || 0;
+    const input4 = parseInt(document.getElementById('input4').value) || 0;
+    const input5 = parseInt(document.getElementById('input5').value) || 0;
+
+    const sum = input1 + input2 + input3 + input4 + input5;
+
+    document.getElementById('note').value = sum;
+  }
+            </script>
+
+            <style>
+            input[type="number"] {
+              border: 1px solid #ccc;
+              transition: border-color 0.3s ease-in-out;
+            }
+            </style>
+    </body>
 
         <!-- Mirrored from demo.tailgrids.com/templates/taildash/settings.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 May 2023 14:15:35 GMT -->
         </html>

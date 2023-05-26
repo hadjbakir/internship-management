@@ -8,6 +8,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Settings | Taildash - Tailwind CSS etidiant Dashboard Template</title>
   <link rel="icon" href="favicon.ico"><link href="{{asset('part/style.css')}}" rel="stylesheet"></head>
+  <link id="pagestyle" href="{{asset('newpart/assets/css/material-dashboard.minaf3e.css?v=3.0.6')}}" rel="stylesheet" />
+  <script>
+    (function(a, s, y, n, c, h, i, d, e) {
+      s.className += ' ' + y;
+      h.start = 1 * new Date;
+      h.end = i = function() {
+        s.className = s.className.replace(RegExp(' ?' + y), '')
+      };
+      (a[n] = a[n] || []).hide = h;
+      setTimeout(function() {
+        i();
+        h.end = null
+      }, c);
+      h.timeout = c;
+    })(window, document.documentElement, 'async-hide', 'dataLayer', 4000, {
+      'GTM-K9BGS8K': true
+    });
+  </script>
+
+<script>
+    (function(i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '../../../../../www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-46172202-22', 'auto', {
+      allowLinker: true
+    });
+    ga('set', 'anonymizeIp', true);
+    ga('require', 'GTM-K9BGS8K');
+    ga('require', 'displayfeatures');
+    ga('require', 'linker');
+    ga('linker:autoLink', ["2checkout.com", "avangate.com"]);
+  </script>
+
+
+<script>
+    (function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        '../../../../../www.googletagmanager.com/gtm5445.html?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-NKDMSK6');
+  </script>
+
+
+
+<script defer data-site="demos.creative-tim.com" src="{{asset('newpart/api.nepcha.com/js/nepcha-analytics.js')}}"></script>
   <body
     x-data="{ page: 'settings', 'loaded': true, 'darkMode': true, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }"
     x-init="
@@ -210,7 +272,7 @@
       <li>
         <a
           class="nr h un lc mg sg qh gp dp nl rl _q qq"
-          href="calendar.html"
+          href="{{route('offres.indexetidiant')}}"
           @click="selected = (selected === 'Calendar' ? '':'Calendar')"
           :class="{ 'eo oj': (selected === 'Calendar') && (page === 'calendar') }"
         >
@@ -231,7 +293,7 @@
               fill="#"
             />
           </svg>
-          Calendar
+          Offres
         </a>
       </li>
       <!-- Menu Item Calendar -->
@@ -1092,89 +1154,105 @@
           class="yd wt qh ni bj wr nj xr cl"
         >
 
-          <form action="{{route('demande.store')}} " method="POST">
-                @csrf
-            <div class="db" style="display:none;">
+        <form action="{{route('demande.store')}} " method="POST">
+            @csrf
+
+
+
+        <div class="db" style="display:none;">
+          <label
+            class="jc un zn gs fb"
+            for="firstName"
+            >stage acp</label
+          >
+          <input
+            class="kkk nj qh ni bj jr fr ps zn gs il cm zr wr"
+            type="text"
+            name="stageacp"
+            id="firstName"
+            placeholder="stageacp"
+            value=""
+          />
+        </div>
+        <div class="db" style="display:none;">
+            <label
+              class="jc un zn gs fb"
+              for="family"
+              >dep acp</label
+            >
+            <input
+              class="kkk nj qh ni bj jr fr ps zn gs il cm zr wr"
+              type="text"
+              name="depacp"
+              id="family"
+              placeholder="family"
+              value=""
+            />
+          </div>
+
+         <div class="db"  style="display:none;">
+            <label
+              class="jc un zn gs fb"
+              for="email"
+              >etidiants_id</label
+            >
+            <input
+              class="kkk nj qh ni bj jr fr ps zn gs il cm zr wr"
+              type="text"
+              name="etidiants_id"
+              id="email"
+              placeholder="etidiants_id"
+              value="{{$etidiantid}}"
+            />
+          </div>
+          <div class="db">
+            <label
+              class="jc un zn gs fb"
+              for="email"
+              >maitrestage_id</label
+            >
+            <select name="maitrestage_id" class="kkk nj qh ni bj jr fr ps zn gs il cm zr wr">
+                @foreach($maitres as $m)
+                <option value="{{ $m->id }}">{{ $m->name }}</option>
+            @endforeach
+
+              </select>
+          </div>
+          <div class="db">
               <label
                 class="jc un zn gs fb"
-                for="firstName"
-                >stage acp</label
+                for="lastName"
+                >dateinsc</label
               >
               <input
-                class="kkk nj qh ni bj jr fr ps zn gs il cm zr wr"
-                type="hidden"
-                name="stageacp"
-                id="firstName"
-                placeholder="stageacp"
-                value="notyet"
-              />
-            </div>
-
-            <div class="db" style="display:none;">
-              <label
-                class="jc un zn gs fb"
-                for="family"
-                >dep acp</label
-              >
-              <input
-
-                class="kkk nj qh ni bj jr fr ps zn gs il cm zr wr"
-                type="hidden"
-                name="depacp"
-                id="family"
-                placeholder="depacp"
-                value="notyet"
-              />
-            </div>
-
-            <div class="db" style="display:none;">
-              <label
-                class="jc un zn gs fb"
-                for="email"
-                >etidiant_id</label
-              >
-              <input
-                class="kkk nj qh ni bj jr fr ps zn gs il cm zr wr"
-                type="email"
-                name="etidiants_id"
-                id="email"
-                placeholder="email"
-                value="{{$etidiantid}}"
+                class="datetimepicker kkk nj qh ni bj jr fr ps zn gs il cm zr wr"
+                type="text"
+                name="dateinsc"
+                id="lastName"
+                placeholder="dateinsc"
+                value=""
               />
             </div>
             <div class="db">
                 <label
                   class="jc un zn gs fb"
-                  for="email"
-                  >maitrestage_id</label
+                  for="lastName"
+                  >datefin</label
                 >
-                <select name="maitrestage_id" class="kkk nj qh ni bj jr fr ps zn gs il cm zr wr">
-                    @foreach($maitres as $m)
-                    <option value="{{ $m->id }}">{{ $m->name }}</option>
-                @endforeach
-
-                  </select>
+                <input
+                  class="datetimepicker kkk nj qh ni bj jr fr ps zn gs il cm zr wr"
+                  type="text"
+                  name="datefin"
+                  id="lastName"
+                  placeholder="datefin"
+                  value=""
+                />
               </div>
             <div class="db">
                 <label
                   class="jc un zn gs fb"
                   for="lastName"
-                  >dateinsc</label
-                >
-                <input
-                  class="kkk nj qh ni bj jr fr ps zn gs il cm zr wr"
-                  type="text"
-                  name="dateinsc"
-                  id="lastName"
-                  placeholder="dateinsc"
-                  value=""
-                />
-              </div>
-              <div class="db">
-                <label
-                  class="jc un zn gs fb"
-                  for="sexe"
-                  >Sexe</label
+                  >diplome</label
                 >
                 <input
                   class="kkk nj qh ni bj jr fr ps zn gs il cm zr wr"
@@ -1184,28 +1262,11 @@
                   placeholder="diplome"
                   value=""
                 />
-
-
               </div>
               <div class="db">
                 <label
                   class="jc un zn gs fb"
                   for="lastName"
-                  >dure</label
-                >
-                <input
-                  class="kkk nj qh ni bj jr fr ps zn gs il cm zr wr"
-                  type="text"
-                  name="dure"
-                  id="lastName"
-                  placeholder="dure"
-                  value=""
-                />
-              </div>
-              <div class="db">
-                <label
-                  class="jc un zn gs fb"
-                  for="departement"
                   >period</label
                 >
                 <input
@@ -1217,10 +1278,11 @@
                   value=""
                 />
               </div>
-              <div class="db">
+
+              <div class="db" style="display: none">
                 <label
                   class="jc un zn gs fb"
-                  for="departement"
+                  for="lastName"
                   >motif</label
                 >
                 <input
@@ -1228,14 +1290,14 @@
                   type="text"
                   name="motif"
                   id="lastName"
-                  placeholder="motif"
-                  value=""
+                  placeholder=""
+                  value="motif"
                 />
               </div>
               <div class="db">
                 <label
                   class="jc un zn gs fb"
-                  for="departement"
+                  for="lastName"
                   >theme</label
                 >
                 <input
@@ -1243,7 +1305,7 @@
                   type="text"
                   name="theme"
                   id="lastName"
-                  placeholder="theme"
+                  placeholder=" theme"
                   value=""
                 />
               </div>
@@ -1251,15 +1313,14 @@
 
 
 
+        <button
+          class="kkkk lc pg qh un eo oj br dl"
+          type="submit"
+        >
+          Save
+        </button>
 
-
-            <button
-              class="kkkk lc pg qh un eo oj br dl"
-              type="submit"
-            >
-              Add Now
-            </button>
-          </form>
+    </form>
         </div>
 
         <div
@@ -1273,20 +1334,19 @@
               <form action="{{route('maitrestfmet.register.create')}}" method="POST">
                 @csrf
                 <div class="db">
-                    <label
-                      class="jc un zn gs fb"
-                      for="firstName"
-                      >Entreprise</label
-                    >
-                    <input
-                      class="yd nj qh ni bj jr fr ps zn gs il cm zr wr"
-                      type="text"
-                      name="entrp_id"
-                      id="firstName"
-                      placeholder="Entreprise"
-                      value=""
-                    />
-                  </div>
+                    <div class="db">
+                        <label
+                          class="jc un zn gs fb"
+                          for="email"
+                          >ENTREPRISE</label
+                        >
+                        <select name="entrp_id" class="kkk nj qh ni bj jr fr ps zn gs il cm zr wr">
+                            @foreach($entrp as $m)
+                            <option value="{{ $m->id }}">{{ $m->nomentrp }}</option>
+                        @endforeach
+
+                          </select>
+                      </div>
                 <div class="db">
                   <label
                     class="jc un zn gs fb"
@@ -1353,7 +1413,7 @@
             </div>
 </div><br><br>
         <!-- Setting Card One -->
-        <div class="rh ni bj wr nj xr">
+      {{--   <div class="rh ni bj wr nj xr">
             <div class="nf oh">
               <table class="yd yf rh">
                 <thead>
@@ -1512,7 +1572,7 @@
               </table>
             </div>
           </div>
-        <!-- Setting Card Two -->
+        --}} <!-- Setting Card Two -->
 
 
             {{-- @if ($errors->any())
@@ -1551,7 +1611,88 @@ class="pc mg pg zd qc yh jw oj kw f ea fa oa"
 </svg>
 </button>
 
+
 <!-- ====== Back To Top End ===== -->
+<script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous">
+  </script>
+  <script src="{{asset('novpart/dist/app.js')}}"></script>
+  <script src="{{asset('newpart/assets/js/core/popper.min.js')}}"></script>
+<script src="{{asset('newpart/assets/js/core/bootstrap.min.js')}}"></script>
+<script src="{{asset('newpart/assets/js/plugins/perfect-scrollbar.min.js')}}"></script>
+<script src="{{asset('newpart/assets/js/plugins/smooth-scrollbar.min.js')}}"></script>
+<script src="{{asset('newpart/assets/js/plugins/choices.min.js')}}"></script>
+<script src="{{asset('newpart/assets/js/plugins/quill.min.js')}}"></script>
+<script src="{{asset('newpart/assets/js/plugins/flatpickr.min.js')}}"></script>
+<script src="{{asset('newpart/assets/js/plugins/dropzone.min.js')}}"></script>
+<script>
+    if (document.getElementById('editor')) {
+      var quill = new Quill('#editor', {
+        theme: 'snow' // Specify theme in configuration
+      });
+    }
+
+    if (document.getElementById('choices-multiple-remove-button')) {
+      var element = document.getElementById('choices-multiple-remove-button');
+      const example = new Choices(element, {
+        removeItemButton: true
+      });
+
+      example.setChoices(
+        [{
+            value: 'One',
+            label: 'Label One',
+            disabled: true
+          },
+          {
+            value: 'Two',
+            label: 'Label Two',
+            selected: true
+          },
+          {
+            value: 'Three',
+            label: 'Label Three'
+          },
+        ],
+        'value',
+        'label',
+        false,
+      );
+    }
+
+    if (document.querySelector('.datetimepicker')) {
+      flatpickr('.datetimepicker', {
+        allowInput: true
+      }); // flatpickr
+    }
+
+    Dropzone.autoDiscover = false;
+    var drop = document.getElementById('dropzone')
+    var myDropzone = new Dropzone(drop, {
+      url: "/file/post",
+      addRemoveLinks: true
+
+    });
+  </script>
+
+<script src="{{asset('newpart/assets/js/plugins/dragula/dragula.min.js')}}"></script>
+<script src="{{asset('newpart/assets/js/plugins/jkanban/jkanban.js')}}"></script>
+<script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+      var options = {
+        damping: '0.5'
+      }
+      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+  </script>
+
+<script async defer src="{{asset('newpart/buttons.github.io/buttons.js')}}"></script>
+
+<script src="{{asset('newpart/assets/js/material-dashboard.minaf3e.js?v=3.0.6')}}"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v52afc6f149f6479b8c77fa569edb01181681764108816" integrity="sha512-jGCTpDpBAYDGNYR5ztKt4BQPGef1P0giN6ZGVUi835kFF88FOmmn8jBQWNgrNd8g/Yu421NdgWhwQoaOPFflDw==" data-cf-beacon='{"rayId":"7ca32015cc155233","version":"2023.4.0","r":1,"b":1,"token":"1b7cbb72744b40c580f8633c6b62637e","si":100}' crossorigin="anonymous"></script>
 <script defer src="{{asset('part/bundle.js')}}"></script></body>
 
 <!-- Mirrored from demo.tailgrids.com/templates/taildash/settings.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 May 2023 14:15:35 GMT -->

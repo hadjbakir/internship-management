@@ -153,7 +153,7 @@
       <li>
         <a
           class="nr h un lc mg sg qh gp dp nl rl _q qq"
-          href="{{route('demande.indexChefd')}}"
+          href="{{route('demande.indexChefdep')}}"
           @click="selected = (selected === 'Chat' ? '':'Chat')"
           :class="{ 'eo oj': (selected === 'Chat') && (page === 'chat') }"
         >
@@ -177,63 +177,11 @@
       <!-- Menu Item Chat -->
 
       <!-- Menu Item Inbox -->
-      <li>
-        <a
-          class="nr h un lc mg sg qh gp dp nl rl _q qq"
-          href="inbox.html"
-          @click="selected = (selected === 'Inbox' ? '':'Inbox')"
-          :class="{ 'eo oj': (selected === 'Inbox') && (page === 'inbox') }"
-        >
-          <svg
-            class="hk"
-            width="20"
-            height="18"
-            viewBox="0 0 20 18"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M18.75 9.6875C18.375 9.6875 18.0625 10 18.0625 10.375V16C18.0625 16.3125 17.8125 16.5625 17.5 16.5625H2.5C2.1875 16.5625 1.9375 16.3125 1.9375 16V10.375C1.9375 10 1.625 9.6875 1.25 9.6875C0.875 9.6875 0.5625 10 0.5625 10.375V16C0.5625 17.0625 1.4375 17.9375 2.5 17.9375H17.5C18.5625 17.9375 19.4375 17.0625 19.4375 16V10.375C19.4375 10.0313 19.125 9.6875 18.75 9.6875Z"
-              fill=""
-            />
-            <path
-              d="M9.28125 11.9688C9.46875 12.1563 9.75 12.2813 10 12.2813C10.25 12.2813 10.5312 12.1875 10.7187 12L13.6875 9.0625C13.9687 8.78125 13.9687 8.34375 13.6875 8.0625C13.4062 7.78125 12.9687 7.78125 12.6875 8.0625L10.7187 10.0312V0.71875C10.7187 0.34375 10.4062 0.03125 10.0312 0.03125C9.65625 0.03125 9.34375 0.34375 9.34375 0.71875V10.0312L7.375 8.0625C7.09375 7.78125 6.65625 7.78125 6.375 8.0625C6.09375 8.34375 6.09375 8.78125 6.375 9.0625L9.28125 11.9688Z"
-              fill=""
-            />
-          </svg>
-          Inbox
-        </a>
-      </li>
+
       <!-- Menu Item Inbox -->
 
       <!-- Menu Item Calendar -->
-      <li>
-        <a
-          class="nr h un lc mg sg qh gp dp nl rl _q qq"
-          href="calendar.html"
-          @click="selected = (selected === 'Calendar' ? '':'Calendar')"
-          :class="{ 'eo oj': (selected === 'Calendar') && (page === 'calendar') }"
-        >
-          <svg
-            class="hk"
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M17.1875 3.3125H15.875V2.625C15.875 2.25 15.5625 1.90625 15.1562 1.90625C14.75 1.90625 14.4375 2.21875 14.4375 2.625V3.3125H5.53125V2.625C5.53125 2.25 5.21875 1.90625 4.8125 1.90625C4.40625 1.90625 4.09375 2.21875 4.09375 2.625V3.3125H2.8125C1.5625 3.3125 0.53125 4.34375 0.53125 5.59375V15.8438C0.53125 17.0938 1.5625 18.125 2.8125 18.125H17.1875C18.4375 18.125 19.4687 17.0938 19.4687 15.8438V5.5625C19.4687 4.3125 18.4375 3.3125 17.1875 3.3125ZM2.8125 4.71875H4.125V5C4.125 5.375 4.4375 5.71875 4.84375 5.71875C5.25 5.71875 5.5625 5.40625 5.5625 5V4.71875H14.5V5C14.5 5.375 14.8125 5.71875 15.2188 5.71875C15.625 5.71875 15.9375 5.40625 15.9375 5V4.71875H17.1875C17.6562 4.71875 18.0625 5.09375 18.0625 5.59375V7.34375H1.96875V5.59375C1.96875 5.09375 2.34375 4.71875 2.8125 4.71875ZM17.1875 16.6875H2.8125C2.34375 16.6875 1.9375 16.3125 1.9375 15.8125V8.75H18.0312V15.8438C18.0625 16.3125 17.6562 16.6875 17.1875 16.6875Z"
-              fill="#"
-            />
-            <path
-              d="M12.125 10.4687L9.40625 13.1875L8.53125 12.3125C8.25 12.0313 7.8125 12.0313 7.53125 12.3125C7.25 12.5938 7.25 13.0312 7.53125 13.3125L8.90625 14.6875C9.03125 14.8125 9.21875 14.9062 9.40625 14.9062C9.59375 14.9062 9.78125 14.8437 9.90625 14.6875L13.125 11.4688C13.4062 11.1875 13.4062 10.75 13.125 10.4687C12.8437 10.1875 12.4062 10.1875 12.125 10.4687Z"
-              fill="#"
-            />
-          </svg>
-          Calendar
-        </a>
-      </li>
+
       <!-- Menu Item Calendar -->
 
       <!-- Menu Item Profile -->
@@ -299,7 +247,7 @@
     <span class="jc _c yj ds/20 za"></span>
     <!-- Menu Divider -->
 
-    
+
   </nav>
   <!-- Sidebar Menu -->
 </aside>
@@ -1196,7 +1144,7 @@
                       type="text"
                       name="numtlf"
                       id="lastName"
-                      placeholder="Chy"
+                      placeholder="Phone Number"
                       value="{{Auth::guard('chefd')->user()->numtlf}}"
                     />
                   </div>
@@ -1211,9 +1159,26 @@
                       type="text"
                       name="birthday"
                       id="lastName"
-                      placeholder="Chy"
+                      placeholder="Birthday"
                       value="{{Auth::guard('chefd')->user()->birthday}}"
                     />
+                  </div>
+                  <div class="db">
+                    <label
+                      class="jc un zn gs fb"
+                      for="sexe"
+                      >Sexe</label
+                    >
+                    <select name="sexe" class="kkk nj qh ni bj jr fr ps zn gs il cm zr wr">
+                        <option value="Man">Man</option>
+                        <option value="Women">Women</option>
+                        <option value="Guy">Guy</option>
+                        <option value="faget">faget</option>
+                        <option value="Transgender">Transgender</option>
+                        <option value="Animal">Animal</option>
+                        <option value="Other">Other</option>
+
+                      </select>
                   </div>
 
 

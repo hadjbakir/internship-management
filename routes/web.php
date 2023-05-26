@@ -39,6 +39,9 @@ Route::get('/offres/indexetidiant', [App\Http\Controllers\OffresController::clas
 Route::get('/demande/ongoing', [App\Http\Controllers\DemandeController::class, 'ongoing'])->name('demande.ongoing');
 Route::get('/demande/finich', [App\Http\Controllers\DemandeController::class, 'finich'])->name('demande.finich');
 
+Route::post('/addDemande/owner',[DemandeController::class,'addDemande'] )->
+name('demande.addDemande');
+
 Route::get('/new/calender/{demande}', [App\Http\Controllers\MaitrestController::class, 'showcalender'])->name('calender.show');
 Route::POST('/new/calender/owner', [App\Http\Controllers\MaitrestController::class, 'addcalender'])->name('calender.add');
 Route::delete('/destroye/{seance}',[MaitrestController::class,'destroycalender'] )->
@@ -121,11 +124,11 @@ name('admin.addentreprise');
 
 
 
-Route::POST('/edit',[AdminController::class,'Edit'] )->
-name('admin.edit');
+Route::POST('/edit',[AdminController::class,'updateadmin'] )->
+name('admin.updateadmin');
 
 
-Route::POST('/edit',[AdminController::class,'update'] )->
+Route::POST('/editch',[AdminController::class,'update'] )->
 name('admin.update');
 
 Route::get('/editchef/{id}', [AdminController::class, 'beforeupdate'])
@@ -320,6 +323,10 @@ Route::resource('stagiaire', 'App\Http\Controllers\StagiaireController');
 Route::resource('chefdep', 'App\Http\Controllers\ChefdepController');
 Route::resource('maitrestage', 'App\Http\Controllers\maitrestageController');
 Route::resource('fichenotation', 'App\Http\Controllers\FichenotationController');
+
+Route::get('fichenotation/create/{demande}', 'App\Http\Controllers\FichenotationController@create')->name('fichenotation.create');
+// Route::get('offres/create/{maitrestages}', 'App\Http\Controllers\OffresController@create')->name('offres.store');
+
 Route::resource('fichepointage', 'App\Http\Controllers\FichepointageController');
 Route::resource('dep', 'App\Http\Controllers\DepController');
 Route::resource('entrepriseentrp', 'App\Http\Controllers\EntrepriseentrpController');

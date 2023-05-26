@@ -8,6 +8,8 @@ use App\Models\Etidiant;
 
 use App\Mail\HelloMail;
 use App\Models\Maitrestage;
+use App\Models\entrp;
+use App\Models\offres;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Mail;
@@ -57,18 +59,33 @@ class DemandeController extends Controller
 
             $demande = Demande::whereIn('etidiants_id', $etidiantIds)
             ->where('depacp', 'notyet')
+            ->with('etidiant')
             ->get();
-            return view('demande.indexChefdep', compact('demande'));
+
+            $acpdemande = Demande::whereIn('etidiants_id', $etidiantIds)
+            ->where('depacp', 'yes')
+            ->with('etidiant')
+            ->get();
+
+            $nodemande = Demande::whereIn('etidiants_id', $etidiantIds)
+            ->where('depacp', 'refuse')
+            ->with('etidiant')
+            ->get();
+            return view('demande.indexChefdep', compact('demande','acpdemande','nodemande'));
         }
 
         public function indexMaitrestage(){
             $demande = Demande::where('maitrestage_id', Auth::guard('maitrestage')->user()->id)
                 ->where('depacp', 'yes')
+                ->where('stageacp', 'notyet')
+                ->get();
+                $demandeacp = Demande::where('maitrestage_id', Auth::guard('maitrestage')->user()->id)
+                ->where('stageacp', 'yes')
                 ->get();
                 $demandenoacp = Demande::where('maitrestage_id', Auth::guard('maitrestage')->user()->id)
-                ->where('depacp', 'no')
+                ->where('stageacp', 'refuse')
                 ->get();
-                return view('demande.indexMaitrestage', compact('demande'));
+                return view('demande.indexMaitrestage', compact('demande','demandeacp','demandenoacp'));
         }
 
 
@@ -76,6 +93,7 @@ class DemandeController extends Controller
         {
             $etidiants = Etidiant ::all();
             $maitres = Maitrestage ::all();
+            $entrp = entrp ::all();
             $etidiantid=Auth::guard('etidiant')->user()->id;
 
             if (Auth::guard('etidiant')->check()) {
@@ -84,22 +102,21 @@ class DemandeController extends Controller
                 Auth::guard('etidiant')->user()->id)->get();}
 
                 return view('demande.create',
-             compact('etidiants','maitres','etidiantid','demande'));
+             compact('etidiants','maitres','etidiantid','demande','entrp'));
         }
 
         public function store(Request $request)
         {
             $validatedData = $request->validate([
-                'stageacp' => 'required',
-                'depacp' => 'required',
+
                 'etidiants_id' => 'required|exists:etidiants,id',
-                'maitrestage_id' => 'required|exists:maitrestage,id',
+                'maitrestage_id' => 'required|exists:maitrestages,id',
                 'dateinsc' => 'required',
+                'datefin' => 'required',
                 'diplome' => 'required',
-                'dure' => 'required',
                 'period' => 'required',
-                'motif' => 'required',
-                'theme' => 'required'
+                'theme' => 'required',
+                
             ]);
 
             $demande = Demande::create($validatedData);
@@ -121,6 +138,7 @@ class DemandeController extends Controller
         ->where('depacp', 'yes')
         ->whereDate('dateinsc', '<=', $today)
         ->whereDate('datefin', '>=', $today)
+        ->with('etidiant')
         ->get();
 
     return view('demande.ongoing', compact('demande'));
@@ -133,6 +151,7 @@ class DemandeController extends Controller
     $demande = Demande::where('maitrestage_id', Auth::guard('maitrestage')->user()->id)
         ->where('depacp', 'yes')
         ->whereDate('datefin', '<', $today)
+        ->with('etidiant')
         ->get();
                 return view('demande.finich', compact('demande'));
         }
@@ -246,7 +265,7 @@ class DemandeController extends Controller
         $password=Str::random(8);
         $name=$maitreStage->name;
         Mail::to($maitreStage->email)->send(new HelloMail($password,$name));
-        $maitreStage->password =Hash::make(Str::random(8));
+        $maitreStage->password =Hash::make($password);
         $maitreStage->save();
 
 
@@ -293,8 +312,15 @@ class DemandeController extends Controller
         }
         public function createfromoffres($maitrestage_id)
         {
+            $etidiants = Etidiant ::all();
 
-            return view('demande.createfromoffres', compact( 'maitrestage_id'));
+            $etidiantid=Auth::guard('etidiant')->user()->id;
+            $offreElements = offres::where('maitrestages_id',
+             $maitrestage_id)->get();
+
+            return view('demande.createfromoffres',
+
+            compact( 'maitrestage_id','etidiantid','offreElements'));
         }
        /*  public function createatte($id)
         {

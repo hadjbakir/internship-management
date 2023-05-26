@@ -7,6 +7,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Settings | Taildash - Tailwind CSS etidiant Dashboard Template</title>
+  <link rel="icon" href="favicon.ico">
+  <link href="{{asset('part/style.css')}}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+</head>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from demo.tailgrids.com/templates/taildash/settings.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 May 2023 14:15:34 GMT -->
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings | Taildash - Tailwind CSS etidiant Dashboard Template</title>
+
+  <link href="{{asset('part/style.css')}}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+</head>
+
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from demo.tailgrids.com/templates/taildash/settings.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 May 2023 14:15:34 GMT -->
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings | Taildash - Tailwind CSS etidiant Dashboard Template</title>
   <link rel="icon" href="favicon.ico"><link href="{{asset('part/style.css')}}" rel="stylesheet"></head>
   <body
     x-data="{ page: 'settings', 'loaded': true, 'darkMode': true, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }"
@@ -1109,9 +1140,185 @@
       <div
         class="lc kg hg zt yg _b"
       >
-        <!-- Setting Card One -->
+      <div class="container mt-5">
+        <table id="example" class="table table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>ST ACP</th>
+                <th>FIRST NAME</th>
+                <th>LAST NAME</th>
+                <th>DATE INS</th>
+                <th>DATE FIN</th>
+                <th>PERIOD</th>
+                <th>THEME</th>
+                <th>#</th>
 
-        <div
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($demande as $item)
+            <tr>
+                <td> @if ($item->stageacp == 'notyet')
+                    <p class="nc mg pg th pj/10 jl am mn un go">
+                      <span class="ub jc dd he th pj"></span>
+                      Pending
+                    @elseif ($item->stageacp == 'yes')
+                    <p
+                    class="nc mg pg th xj/10 jl am mn un io"
+                  >
+                    <span
+                      class="ub jc dd he th xj"
+                    ></span>
+                    Accepte
+                  </p>
+                  @elseif ($item->stageacp == 'refuse')
+                  <p
+                            class="nc mg pg th sj/10 jl am mn un fo"
+                          >
+                            <span
+                              class="ub jc dd he th sj"
+                            ></span>
+                            Refuse
+                          </p>
+
+
+                    @endif</td>
+
+                <td>{{ $item->etidiant->name }}</td>
+                <td>{{ $item->etidiant->family }}</td>
+                <td>{{ $item->dateinsc }}</td>
+                <td>{{ $item->datefin }}</td>
+                <td>{{ $item->period }}</td>
+                <td>{{ $item->theme }}</td>
+                <td> <a href="{{route('demande.editmaitrestage', $item ->id)}}"
+                    class="btn btn-success">edit</a></td>
+
+            </tr>
+        @endforeach
+        </tbody>
+
+    </table></div></div>
+    <br><br><br><br>
+    <div class="container mt-5">
+        <table id="example" class="table table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>ST ACP</th>
+                <th>FIRST NAME</th>
+                <th>LAST NAME</th>
+                <th>DATE INS</th>
+                <th>DATE FIN</th>
+                <th>PERIOD</th>
+                <th>THEME</th>
+                <th>#</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($demandeacp as $item)
+            <tr>
+                <td> @if ($item->stageacp == 'notyet')
+                    <p class="nc mg pg th pj/10 jl am mn un go">
+                      <span class="ub jc dd he th pj"></span>
+                      Pending
+                    @elseif ($item->stageacp == 'yes')
+                    <p
+                    class="nc mg pg th xj/10 jl am mn un io"
+                  >
+                    <span
+                      class="ub jc dd he th xj"
+                    ></span>
+                    Accepte
+                  </p>
+                  @elseif ($item->stageacp == 'refuse')
+                  <p
+                            class="nc mg pg th sj/10 jl am mn un fo"
+                          >
+                            <span
+                              class="ub jc dd he th sj"
+                            ></span>
+                            Refuse
+                          </p>
+
+
+                    @endif</td>
+
+                <td>{{ $item->etidiant->name }}</td>
+                <td>{{ $item->etidiant->family }}</td>
+                <td>{{ $item->dateinsc }}</td>
+                <td>{{ $item->datefin }}</td>
+                <td>{{ $item->period }}</td>
+                <td>{{ $item->theme }}</td>
+                <td> <a href="{{route('demande.editmaitrestage', $item ->id)}}"
+                    class="btn btn-success">edit</a></td>
+
+            </tr>
+        @endforeach
+        </tbody>
+
+    </table></div>
+        <!-- Setting Card One -->
+        <br><br><br><br>
+    <div class="container mt-5">
+        <table id="example" class="table table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>ST ACP</th>
+                <th>FIRST NAME</th>
+                <th>LAST NAME</th>
+                <th>DATE INS</th>
+                <th>DATE FIN</th>
+                <th>PERIOD</th>
+                <th>THEME</th>
+                <th>#</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($demandenoacp as $item)
+            <tr>
+                <td> @if ($item->stageacp == 'notyet')
+                    <p class="nc mg pg th pj/10 jl am mn un go">
+                      <span class="ub jc dd he th pj"></span>
+                      Pending
+                    @elseif ($item->stageacp == 'yes')
+                    <p
+                    class="nc mg pg th xj/10 jl am mn un io"
+                  >
+                    <span
+                      class="ub jc dd he th xj"
+                    ></span>
+                    Accepte
+                  </p>
+                  @elseif ($item->stageacp == 'refuse')
+                  <p
+                            class="nc mg pg th sj/10 jl am mn un fo"
+                          >
+                            <span
+                              class="ub jc dd he th sj"
+                            ></span>
+                            Refuse
+                          </p>
+
+
+                    @endif</td>
+
+                <td>{{ $item->etidiant->name }}</td>
+                <td>{{ $item->etidiant->family }}</td>
+                <td>{{ $item->dateinsc }}</td>
+                <td>{{ $item->datefin }}</td>
+                <td>{{ $item->period }}</td>
+                <td>{{ $item->theme }}</td>
+                <td> <a href="{{route('demande.editmaitrestage', $item ->id)}}"
+                    class="btn btn-success">edit</a></td>
+
+            </tr>
+        @endforeach
+        </tbody>
+
+    </table></div>
+
+       {{--  <div
           class="yd wtt qh ni bj wr nj xr cl"
         >
 
@@ -1268,7 +1475,7 @@
 
                         {{--    <a href="{{ route('demande.createatte',
                             ['id' => $item->id]) }}" class="btn btn-primary">Create attestation</a>
---}}
+
                         </td>
 
                     <td class="_l tm nm in">
@@ -1276,13 +1483,13 @@
 
 
 
-                @endforeach
+
 
 
                 </tbody>
               </table>
             </div>
-          </div>
+          </div>--}}
         <!-- Setting Card Two -->
 
 
@@ -1300,7 +1507,7 @@
 
 
 
-    </div>
+
 
 
 
@@ -1311,6 +1518,7 @@
 <!-- ===== Page Wrapper End ===== -->
 
 <!-- ====== Back To Top Start ===== -->
+<br><br><br><br>
 <button
 class="pc mg pg zd qc yh jw oj kw f ea fa oa"
 @click="window.scrollTo({top: 0, behavior: 'smooth'})"
@@ -1323,7 +1531,17 @@ class="pc mg pg zd qc yh jw oj kw f ea fa oa"
 </button>
 
 <!-- ====== Back To Top End ===== -->
-<script defer src="{{asset('part/bundle.js')}}"></script></body>
+<script defer src="{{asset('part/bundle.js')}}"></script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src=" https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+  <script>
+    $(document).ready(function () {
+    $('#example').DataTable();
+});
+  </script>
+</body>
 
 <!-- Mirrored from demo.tailgrids.com/templates/taildash/settings.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 May 2023 14:15:35 GMT -->
 </html>

@@ -284,6 +284,27 @@
 
 @endsection --}}
 
+
+<!-- Mirrored from demo.tailgrids.com/templates/taildash/settings.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 May 2023 14:15:34 GMT -->
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from demo.tailgrids.com/templates/taildash/settings.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 May 2023 14:15:34 GMT -->
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings | Taildash - Tailwind CSS etidiant Dashboard Template</title>
+  <link rel="icon" href="favicon.ico">
+  <link href="{{asset('part/style.css')}}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+</head>
+<body>
+
+</body>
+
+</html>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -420,7 +441,7 @@
 
 
 
-            <div class="db" >
+            <div class="db" style="display:none;" >
               <label
                 class="jc un zn gs fb"
                 for="firstName"
@@ -432,7 +453,7 @@
                 name="demande_id"
                 id="firstName"
                 placeholder="demande_id"
-                value=""
+                value=" {{$demandeId}}"
               />
             </div>
             <div class="db" style="display:none;">
@@ -517,61 +538,20 @@
 
     </div>
         </div>
-        <div class="rh ni bj wr nj xr">
-            <div class="nf oh">
-              <table class="yd yf rh">
-                <thead>
-                  <tr
-                    class="vi bj wr"
-                  >
+        <div class="container mt-5">
+            <table id="example" class="table table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>DATE</th>
+                    <th>ENTER</th>
+                    <th>GET OUT</th>
+                    <th>OBSERVATION</th>
 
-                    <th class="ff sl rm sm">
-                      <p
-                        class="gn un zn gs"
-                      >
-                      Date
-                      </p>
-                    </th>
-                    <th class="ff sl rl">
-                      <p
-                        class="gn un zn gs"
-                      >
-                      Start
-                      </p>
-                    </th>
-                    <th class="min-w-[160px] sl rl">
-                      <p
-                        class="gn un zn gs"
-                      >
-                      End
-                      </p>
-                    </th>
-                    <th class="gf sl rl">
-                      <p
-                        class="gn un zn gs"
-                      >
-                      Observation
-                      </p>
-                    </th>
-
-                      <th class="if sl tm nm">
-                        <p
-                          class="in un zn gs"
-                        >
-                          #
-                        </p>
-                      </th>
-                      <th class="if sl tm nm">
-                        <p
-                          class="in un zn gs"
-                        >
-                          #
-                        </p>
-                      </th>
-                  </tr>
-                </thead>
-
-                <tbody>
+                    <th>#</th>
+                    <th>#</th>
+                </tr>
+            </thead>
+            <tbody
 
                     @foreach ($seances as $item)
                   <tr
@@ -586,21 +566,21 @@
 
 
 
-                    <td class="_l rl">
-                        <h5 class="un">{{ $item->date }}</h5>
+                    <td >
+                        <h5 >{{ $item->date }}</h5>
                     </td>
-                    <td class="_l rl">
-                        <h5 class="un">{{ $item->hentre }}</h5>
+                    <td >
+                        <h5 ">{{ $item->hentre }}</h5>
                     </td>
-                    <td class="_l rl">
-                        <h5 class="un">{{ $item->hsorti }}</h5>
+                    <td >
+                        <h5 >{{ $item->hsorti }}</h5>
                     </td>
-                    <td class="_l rl">
-                        <h5 class="un">{{ $item->observation }}</h5>
+                    <td >
+                        <h5 >{{ $item->observation }}</h5>
                     </td>
 
 
-                    <td class="_l rl">
+                    <td >
                         <a href=""
                             class="btn btn-success">edit</a>
 
@@ -608,7 +588,7 @@
 
 
 
-                   <td class="_l tm nm in">
+                   <td >
 
 
 
@@ -714,7 +694,17 @@
 <script src="{{asset('newpart/assets/js/material-dashboard.minaf3e.js?v=3.0.6')}}"></script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v52afc6f149f6479b8c77fa569edb01181681764108816" integrity="sha512-jGCTpDpBAYDGNYR5ztKt4BQPGef1P0giN6ZGVUi835kFF88FOmmn8jBQWNgrNd8g/Yu421NdgWhwQoaOPFflDw==" data-cf-beacon='{"rayId":"7ca32015cc155233","version":"2023.4.0","r":1,"b":1,"token":"1b7cbb72744b40c580f8633c6b62637e","si":100}' crossorigin="anonymous"></script>
 
-        <script defer src="{{asset('parts/bundle.js')}}"></script></body>
+        <script defer src="{{asset('parts/bundle.js')}}"></script>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src=" https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+  <script>
+    $(document).ready(function () {
+    $('#example').DataTable();
+});
+  </script>
+    </body>
 
         <!-- Mirrored from demo.tailgrids.com/templates/taildash/settings.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 May 2023 14:15:35 GMT -->
         </html>

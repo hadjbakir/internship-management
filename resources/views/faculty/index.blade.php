@@ -6,6 +6,25 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings | Taildash - Tailwind CSS etidiant Dashboard Template</title>
+  <link rel="icon" href="favicon.ico">
+  <link href="{{asset('part/style.css')}}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+</head>
+<body>
+
+</body>
+
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from demo.tailgrids.com/templates/taildash/settings.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 May 2023 14:15:34 GMT -->
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Settings | Taildash - Tailwind CSS Admin Dashboard Template</title>
   <link rel="icon" href="favicon.ico"><link href="{{asset('part/style.css')}}" rel="stylesheet"></head>
   <body
@@ -330,394 +349,7 @@
     <span class="jc _c yj ds/20 za"></span>
     <!-- Menu Divider -->
 
-    <ul class="lc hg bh">
-      <!-- Menu Item Ui Elements -->
-      <li>
-        <a
-          class="nr h un lc mg sg qh gp dp nl rl _q qq"
-          href="#"
-          @click.prevent="selected = (selected === 'UiElements' ? '':'UiElements')"
-          :class="{ 'eo oj': (selected === 'UiElements') || (page === 'accordion' || page === 'alerts' || page === 'badge' || page === 'breadcrumb' || page === 'buttons' || page === 'buttonGroup' || page === 'card' || page === 'tabs' || page === 'pagination') }"
-        >
-          <svg
-            class="hk"
-            width="20"
-            height="18"
-            viewBox="0 0 20 18"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M6.78125 0.0625H2.8125C1.75 0.0625 0.875 0.9375 0.875 2V5.96875C0.875 7.03125 1.75 7.90625 2.8125 7.90625H6.78125C7.84375 7.90625 8.71875 7.03125 8.71875 5.96875V2.03125C8.75 0.9375 7.875 0.0625 6.78125 0.0625ZM7.34375 6C7.34375 6.3125 7.09375 6.5625 6.78125 6.5625H2.8125C2.5 6.5625 2.25 6.3125 2.25 6V2.03125C2.25 1.71875 2.5 1.46875 2.8125 1.46875H6.78125C7.09375 1.46875 7.34375 1.71875 7.34375 2.03125V6Z"
-              fill=""
-            />
-            <path
-              d="M17.1875 0.0625H13.2188C12.1563 0.0625 11.2812 0.9375 11.2812 2V5.96875C11.2812 7.03125 12.1563 7.90625 13.2188 7.90625H17.1875C18.25 7.90625 19.125 7.03125 19.125 5.96875V2.03125C19.125 0.9375 18.25 0.0625 17.1875 0.0625ZM17.75 6C17.75 6.3125 17.5 6.5625 17.1875 6.5625H13.2188C12.9063 6.5625 12.6563 6.3125 12.6563 6V2.03125C12.6563 1.71875 12.9063 1.46875 13.2188 1.46875H17.1875C17.5 1.46875 17.75 1.71875 17.75 2.03125V6Z"
-              fill=""
-            />
-            <path
-              d="M6.78125 10.0312H2.8125C1.75 10.0312 0.875 10.9063 0.875 11.9688V15.9375C0.875 17 1.75 17.875 2.8125 17.875H6.78125C7.84375 17.875 8.71875 17 8.71875 15.9375V12C8.75 10.9062 7.875 10.0312 6.78125 10.0312ZM7.34375 15.9687C7.34375 16.2812 7.09375 16.5312 6.78125 16.5312H2.8125C2.5 16.5312 2.25 16.2812 2.25 15.9687V12C2.25 11.6875 2.5 11.4375 2.8125 11.4375H6.78125C7.09375 11.4375 7.34375 11.6875 7.34375 12V15.9687Z"
-              fill=""
-            />
-            <path
-              d="M17.1875 10.0312H13.2188C12.1563 10.0312 11.2812 10.9063 11.2812 11.9688V15.9375C11.2812 17 12.1563 17.875 13.2188 17.875H17.1875C18.25 17.875 19.125 17 19.125 15.9375V12C19.125 10.9062 18.25 10.0312 17.1875 10.0312ZM17.75 15.9687C17.75 16.2812 17.5 16.5312 17.1875 16.5312H13.2188C12.9063 16.5312 12.6563 16.2812 12.6563 15.9687V12C12.6563 11.6875 12.9063 11.4375 13.2188 11.4375H17.1875C17.5 11.4375 17.75 11.6875 17.75 12V15.9687Z"
-              fill=""
-            />
-          </svg>
-
-          UI Elements
-
-          <svg
-            class="hk g i j/2 -ud-translate-y-1/2"
-            :class="{ 'ag': (selected === 'UiElements') }"
-            width="12"
-            height="8"
-            viewBox="0 0 12 8"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M0.410704 0.929411C0.736141 0.603974 1.26378 0.603974 1.58922 0.929411L5.99996 5.34016L10.4107 0.929411C10.7361 0.603974 11.2638 0.603974 11.5892 0.929411C11.9147 1.25485 11.9147 1.78249 11.5892 2.10792L6.58922 7.10792C6.26378 7.43336 5.73614 7.43336 5.4107 7.10792L0.410704 2.10792C0.0852667 1.78249 0.0852667 1.25485 0.410704 0.929411Z"
-              fill=""
-            />
-          </svg>
-        </a>
-
-        <!-- Dropdown Menu Start -->
-        <div class="nh" :class="(selected === 'UiElements') ? 'jc' :'pc'">
-          <ul class="lc hg tg wm yb fb">
-            <li>
-              <a
-                class="nr h un lc mg sg qh gp dp ol rl zq os vq ls/5"
-                href="accordion.html"
-                :class="page === 'accordion' && '_n gs dk cs/5'"
-                >Accordion</a
-              >
-            </li>
-            <li>
-              <a
-                class="nr h un lc mg sg qh gp dp ol rl zq os vq ls/5"
-                href="alerts.html"
-                :class="page === 'alerts' && '_n gs dk cs/5'"
-                >Alerts</a
-              >
-            </li>
-            <li>
-              <a
-                class="nr h un lc mg sg qh gp dp ol rl zq os vq ls/5"
-                href="badge.html"
-                :class="page === 'badge' && '_n gs dk cs/5'"
-                >Badge</a
-              >
-            </li>
-            <li>
-              <a
-                class="nr h un lc mg sg qh gp dp ol rl zq os vq ls/5"
-                href="breadcrumb.html"
-                :class="page === 'breadcrumb' && '_n gs dk cs/5'"
-                >Breadcrumb</a
-              >
-            </li>
-            <li>
-              <a
-                class="nr h un lc mg sg qh gp dp ol rl zq os vq ls/5"
-                href="buttons.html"
-                :class="page === 'buttons' && '_n gs dk cs/5'"
-                >Buttons</a
-              >
-            </li>
-            <li>
-              <a
-                class="nr h un lc mg sg qh gp dp ol rl zq os vq ls/5"
-                href="button-group.html"
-                :class="page === 'buttonGroup' && '_n gs dk cs/5'"
-                >Button Group</a
-              >
-            </li>
-            <li>
-              <a
-                class="nr h un lc mg sg qh gp dp ol rl zq os vq ls/5"
-                href="card.html"
-                :class="page === 'card' && '_n gs dk cs/5'"
-                >Card</a
-              >
-            </li>
-            <li>
-              <a
-                class="nr h un lc mg sg qh gp dp ol rl zq os vq ls/5"
-                href="tabs.html"
-                :class="page === 'tabs' && '_n gs dk cs/5'"
-                >Tabs</a
-              >
-            </li>
-            <li>
-              <a
-                class="nr h un lc mg sg qh gp dp ol rl zq os vq ls/5"
-                href="pagination.html"
-                :class="page === 'pagination' && '_n gs dk cs/5'"
-                >Pagination</a
-              >
-            </li>
-          </ul>
-        </div>
-        <!-- Dropdown Menu End -->
-      </li>
-      <!-- Menu Item Ui Elements -->
-
-      <!-- Menu Item Form Elements -->
-      <li>
-        <a
-          class="nr h un lc mg sg qh gp dp nl rl _q qq"
-          href="#"
-          @click.prevent="selected = (selected === 'FormElements' ? '':'FormElements')"
-          :class="{ 'eo oj': (selected === 'FormElements') || (page === 'input' || page === 'textarea' || page === 'fileUpload' || page === 'selectInput') }"
-        >
-          <svg
-            class="hk"
-            width="20"
-            height="18"
-            viewBox="0 0 20 18"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M18.5625 10.8437L17.3438 10.0937C17.0313 9.875 16.5938 10 16.375 10.3125C16.1563 10.6562 16.2812 11.0625 16.5937 11.2812L17.4063 11.8125L10 16.4687L2.5625 11.8125L3.375 11.2812C3.71875 11.0625 3.8125 10.625 3.59375 10.3125C3.375 9.96875 2.9375 9.875 2.625 10.0937L1.40625 10.8437C1.09375 11.0625 0.875 11.4062 0.875 11.7812C0.875 12.1562 1.0625 12.5312 1.40625 12.7187L9.40625 17.75C9.59375 17.875 9.78125 17.9062 10 17.9062C10.2188 17.9062 10.4063 17.8437 10.5938 17.75L18.5625 12.75C18.875 12.5312 19.0937 12.1875 19.0937 11.8125C19.0937 11.4375 18.9063 11.0625 18.5625 10.8437Z"
-              fill=""
-            />
-            <path
-              d="M11.0937 10.2812L9.99997 10.9375L8.90622 10.25C8.56247 10.0312 8.15622 10.1562 7.93747 10.4687C7.71872 10.8125 7.84372 11.2187 8.15622 11.4375L9.62497 12.3437C9.74997 12.4062 9.87497 12.4375 9.99997 12.4375C10.125 12.4375 10.25 12.4062 10.375 12.3437L11.8437 11.4375C12.1875 11.2187 12.2812 10.7812 12.0625 10.4687C11.8437 10.1562 11.4062 10.0625 11.0937 10.2812Z"
-              fill=""
-            />
-            <path
-              d="M4.21875 8.96872L6.28125 10.2812C6.40625 10.3437 6.53125 10.375 6.65625 10.375C6.875 10.375 7.125 10.25 7.25 10.0312C7.46875 9.68747 7.34375 9.28122 7.03125 9.06247L4.96875 7.74997C4.625 7.53122 4.21875 7.65622 4 7.96872C3.78125 8.34372 3.875 8.78122 4.21875 8.96872Z"
-              fill=""
-            />
-            <path
-              d="M2.71875 7.90625C2.9375 7.90625 3.1875 7.78125 3.3125 7.5625C3.53125 7.21875 3.40625 6.8125 3.09375 6.59375L2.59375 6.28125L3.09375 5.96875C3.4375 5.75 3.53125 5.3125 3.3125 5C3.09375 4.65625 2.65625 4.5625 2.34375 4.78125L0.875 5.6875C0.65625 5.8125 0.53125 6.03125 0.53125 6.28125C0.53125 6.53125 0.65625 6.75 0.875 6.875L2.34375 7.78125C2.4375 7.875 2.5625 7.90625 2.71875 7.90625Z"
-              fill=""
-            />
-            <path
-              d="M4.59375 4.875C4.71875 4.875 4.84375 4.84375 4.96875 4.78125L7.03125 3.46875C7.375 3.25 7.46875 2.8125 7.25 2.5C7.03125 2.15625 6.59375 2.0625 6.28125 2.28125L4.21875 3.59375C3.875 3.8125 3.78125 4.25 4 4.5625C4.125 4.75 4.34375 4.875 4.59375 4.875Z"
-              fill=""
-            />
-            <path
-              d="M8.90625 2.28125L10 1.59375L11.0937 2.28125C11.2187 2.34375 11.3437 2.375 11.4687 2.375C11.6875 2.375 11.9375 2.25 12.0625 2.03125C12.2812 1.6875 12.1562 1.28125 11.8437 1.0625L10.375 0.15625C10.1562 0 9.84375 0 9.625 0.15625L8.15625 1.0625C7.8125 1.28125 7.71875 1.71875 7.9375 2.03125C8.15625 2.34375 8.59375 2.5 8.90625 2.28125Z"
-              fill=""
-            />
-            <path
-              d="M12.9687 3.46872L15.0312 4.78122C15.1562 4.84372 15.2812 4.87497 15.4062 4.87497C15.625 4.87497 15.875 4.74997 16 4.53122C16.2187 4.18747 16.0937 3.78122 15.7812 3.56247L13.7187 2.24997C13.4062 2.03122 12.9687 2.15622 12.75 2.46872C12.5312 2.81247 12.625 3.24997 12.9687 3.46872Z"
-              fill=""
-            />
-            <path
-              d="M19.125 5.68747L17.6562 4.78122C17.3437 4.56247 16.9062 4.68747 16.6875 4.99997C16.4687 5.34372 16.5937 5.74997 16.9062 5.96872L17.4062 6.28122L16.9062 6.59372C16.5625 6.81247 16.4687 7.24997 16.6875 7.56247C16.8125 7.78122 17.0625 7.90622 17.2812 7.90622C17.4062 7.90622 17.5312 7.87497 17.6562 7.81247L19.125 6.90622C19.3437 6.78122 19.4687 6.56247 19.4687 6.31247C19.4687 6.06247 19.3437 5.81247 19.125 5.68747Z"
-              fill=""
-            />
-            <path
-              d="M13.3437 10.375C13.4687 10.375 13.5937 10.3437 13.7187 10.2812L15.7812 8.96875C16.125 8.75 16.2187 8.3125 16 8C15.7812 7.65625 15.3437 7.5625 15.0312 7.78125L12.9687 9.09375C12.625 9.3125 12.5312 9.75 12.75 10.0625C12.875 10.2812 13.0937 10.375 13.3437 10.375Z"
-              fill=""
-            />
-          </svg>
-
-          Form Elements
-
-          <svg
-            class="hk g i j/2 -ud-translate-y-1/2"
-            :class="{ 'ag': (selected === 'FormElements') }"
-            width="12"
-            height="8"
-            viewBox="0 0 12 8"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M0.410704 0.929411C0.736141 0.603974 1.26378 0.603974 1.58922 0.929411L5.99996 5.34016L10.4107 0.929411C10.7361 0.603974 11.2638 0.603974 11.5892 0.929411C11.9147 1.25485 11.9147 1.78249 11.5892 2.10792L6.58922 7.10792C6.26378 7.43336 5.73614 7.43336 5.4107 7.10792L0.410704 2.10792C0.0852667 1.78249 0.0852667 1.25485 0.410704 0.929411Z"
-              fill=""
-            />
-          </svg>
-        </a>
-
-        <!-- Dropdown Menu Start -->
-        <div class="nh" :class="(selected === 'FormElements') ? 'jc':'pc'">
-          <ul class="lc hg tg wm yb fb">
-            <li>
-              <a
-                class="nr h un lc mg sg qh gp dp ol rl zq os vq ls/5"
-                href="input.html"
-                :class="page === 'input' && '_n gs dk cs/5'"
-                >Input</a
-              >
-            </li>
-            <li>
-              <a
-                class="nr h un lc mg sg qh gp dp ol rl zq os vq ls/5"
-                href="textarea.html"
-                :class="page === 'textarea' && '_n gs dk cs/5'"
-                >Textarea</a
-              >
-            </li>
-            <li>
-              <a
-                class="nr h un lc mg sg qh gp dp ol rl zq os vq ls/5"
-                href="file-upload.html"
-                :class="page === 'fileUpload' && '_n gs dk cs/5'"
-                >File upload</a
-              >
-            </li>
-            <li>
-              <a
-                class="nr h un lc mg sg qh gp dp ol rl zq os vq ls/5"
-                href="select-input.html"
-                :class="page === 'selectInput' && '_n gs dk cs/5'"
-                >Select Input</a
-              >
-            </li>
-          </ul>
-        </div>
-        <!-- Dropdown Menu End -->
-      </li>
-      <!-- Menu Item Form Elements -->
-
-      <!-- Menu Item Data tables -->
-      <li>
-        <a
-          class="nr h un lc mg sg qh gp dp nl rl _q qq"
-          href="data-tables.html"
-          @click="selected = (selected === 'dataTables' ? '':'dataTables')"
-          :class="{ 'eo oj': (selected === 'dataTables') && (page === 'dataTables') }"
-        >
-          <svg
-            class="hk"
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M17.5 0.5625H2.5C1.4375 0.5625 0.5625 1.4375 0.5625 2.5V17.5C0.5625 18.5625 1.4375 19.4688 2.53125 19.4688H17.5312C18.5937 19.4688 19.5 18.5938 19.5 17.5V2.5C19.4688 1.4375 18.5625 0.5625 17.5 0.5625ZM7.4375 11.7188V7.125H12.5625V11.6875H7.4375V11.7188ZM12.5625 13.125V18.0625H7.4375V13.125H12.5625ZM1.96875 7.125H6.0625V11.6875H1.96875V7.125ZM13.9688 7.125H18.0625V11.6875H13.9688V7.125ZM2.5 1.96875H17.5C17.8125 1.96875 18.0625 2.21875 18.0625 2.53125V5.75H1.96875V2.5C1.96875 2.1875 2.1875 1.96875 2.5 1.96875ZM1.96875 17.5V13.125H6.0625V18.0625H2.5C2.1875 18.0625 1.96875 17.8125 1.96875 17.5ZM17.5 18.0625H13.9688V13.125H18.0625V17.5C18.0625 17.8125 17.8125 18.0625 17.5 18.0625Z"
-              fill=""
-            />
-          </svg>
-
-          Data tables
-        </a>
-      </li>
-      <!-- Menu Item Data tables -->
-
-      <!-- Menu Item Charts -->
-      <li>
-        <a
-          class="nr h un lc mg sg qh gp dp nl rl _q qq"
-          href="charts.html"
-          @click="selected = (selected === 'Charts' ? '':'Charts')"
-          :class="{ 'eo oj': (selected === 'Charts') && (page === 'charts') }"
-        >
-          <svg
-            class="hk"
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12.0625 0.5625C11.6875 0.5625 11.3438 0.875 11.3438 1.28125V7.53125C11.3438 7.90625 11.6562 8.25 12.0625 8.25H18.75C18.9375 8.25 19.125 8.15625 19.25 8.03125C19.375 7.875 19.4375 7.6875 19.4375 7.5C19.1875 3.59375 15.9375 0.5625 12.0625 0.5625ZM12.75 6.78125V2C15.3437 2.3125 17.4375 4.25 17.9375 6.8125H12.75V6.78125Z"
-              fill=""
-            />
-            <path
-              d="M17.0938 9.65625H10.125V2.9375C10.125 2.5625 9.8125 2.25 9.4375 2.25C9.34375 2.25 9.25 2.25 9.15625 2.25C4.40625 2.21875 0.5625 6.09375 0.5625 10.8438C0.5625 15.5938 4.4375 19.4688 9.1875 19.4688C13.9375 19.4688 17.8125 15.5938 17.8125 10.8438C17.8125 10.6563 17.8125 10.4688 17.7813 10.3125C17.7813 9.9375 17.4688 9.65625 17.0938 9.65625ZM9.1875 18.0625C5.1875 18.0625 1.96875 14.8438 1.96875 10.8438C1.96875 7.03125 4.96875 3.875 8.75 3.65625V10.3438C8.75 10.7188 9.0625 11.0625 9.46875 11.0625H16.4375C16.3125 14.9375 13.0938 18.0625 9.1875 18.0625Z"
-              fill=""
-            />
-          </svg>
-
-          Charts
-        </a>
-      </li>
-      <!-- Menu Item Charts -->
-
-      <!-- Menu Item Auth Pages -->
-      <li>
-        <a
-          class="nr h un lc mg sg qh gp dp nl rl _q qq"
-          href="#"
-          @click.prevent="selected = (selected === 'AuthPages' ? '':'AuthPages')"
-          :class="{ 'eo oj': (selected === 'AuthPages') || (page === 'register' || page === 'login' || page === 'forgetPassword') }"
-        >
-          <svg
-            class="hk"
-            width="14"
-            height="20"
-            viewBox="0 0 14 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M11.125 0.5625H7.59375C6.78125 0.5625 6.09375 1.25 6.09375 2.0625V4.21875C6.09375 4.59375 6.40625 4.90625 6.78125 4.90625C7.15625 4.90625 7.5 4.59375 7.5 4.21875V2.03125C7.5 1.96875 7.53125 1.9375 7.59375 1.9375H11.125C11.875 1.9375 12.4687 2.53125 12.4687 3.28125V16.6875C12.4687 17.4375 11.875 18.0313 11.125 18.0313H7.59375C7.53125 18.0313 7.5 18 7.5 17.9375V15.7813C7.5 15.4063 7.1875 15.0938 6.78125 15.0938C6.375 15.0938 6.09375 15.4063 6.09375 15.7813V17.9375C6.09375 18.75 6.78125 19.4375 7.59375 19.4375H11.125C12.6563 19.4375 13.875 18.1875 13.875 16.6875V3.3125C13.875 1.78125 12.625 0.5625 11.125 0.5625Z"
-              fill=""
-            />
-            <path
-              d="M8.59375 9.5L5.46875 6.3125C5.1875 6.03125 4.75 6.03125 4.46875 6.3125C4.1875 6.59375 4.1875 7.03125 4.46875 7.3125L6.40625 9.28125H0.84375C0.46875 9.28125 0.15625 9.59375 0.15625 9.96875C0.15625 10.3437 0.46875 10.6562 0.84375 10.6562H6.4375L4.46875 12.6562C4.1875 12.9375 4.1875 13.375 4.46875 13.6562C4.59375 13.7812 4.78125 13.8437 4.96875 13.8437C5.15625 13.8437 5.34375 13.7812 5.46875 13.625L8.59375 10.4375C8.875 10.2188 8.875 9.78125 8.59375 9.5Z"
-              fill=""
-            />
-          </svg>
-
-          Auth Pages
-
-          <svg
-            class="hk g i j/2 -ud-translate-y-1/2"
-            :class="{ 'ag': (selected === 'AuthPages') }"
-            width="12"
-            height="8"
-            viewBox="0 0 12 8"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M0.410704 0.929411C0.736141 0.603974 1.26378 0.603974 1.58922 0.929411L5.99996 5.34016L10.4107 0.929411C10.7361 0.603974 11.2638 0.603974 11.5892 0.929411C11.9147 1.25485 11.9147 1.78249 11.5892 2.10792L6.58922 7.10792C6.26378 7.43336 5.73614 7.43336 5.4107 7.10792L0.410704 2.10792C0.0852667 1.78249 0.0852667 1.25485 0.410704 0.929411Z"
-              fill=""
-            />
-          </svg>
-        </a>
-
-        <!-- Dropdown Menu Start -->
-        <div class="nh" :class="(selected === 'AuthPages') ? 'jc' :'pc'">
-          <ul class="lc hg tg wm yb fb">
-            <li>
-              <a
-                class="nr h un lc mg sg qh gp dp ol rl zq os vq ls/5"
-                href="signup.html"
-                :class="page === 'register' && '_n gs dk cs/5'"
-                >Register</a
-              >
-            </li>
-            <li>
-              <a
-                class="nr h un lc mg sg qh gp dp ol rl zq os vq ls/5"
-                href="signin.html"
-                :class="page === 'login' && '_n gs dk cs/5'"
-                >Login</a
-              >
-            </li>
-            <li>
-              <a
-                class="nr h un lc mg sg qh gp dp ol rl zq os vq ls/5"
-                href="forget-password.html"
-                :class="page === 'forgetPassword' && '_n gs dk cs/5'"
-                >Forget password</a
-              >
-            </li>
-          </ul>
-        </div>
-        <!-- Dropdown Menu End -->
-      </li>
-      <!-- Menu Item Auth Pages -->
-    </ul>
+   
   </nav>
   <!-- Sidebar Menu -->
 </aside>
@@ -1620,89 +1252,42 @@
         </div><br><br>
 
 
-  <div class="rh ni bj wr nj xr">
-    <div class="nf oh">
-      <table class="yd yf rh">
-        <thead>
-          <tr
-            class="vi bj wr"
-          >
-            <th class="ff sl rm sm">
-              <p
-                class="gn un zn gs"
-              >
-                Customer
-              </p>
-            </th>
-            <th class="ff sl rl">
-              <p
-                class="gn un zn gs"
-              >
-                Product
-              </p>
-            </th>
-            <th class="min-w-[160px] sl rl">
-              <p
-                class="gn un zn gs"
-              >
-                Order Number
-              </p>
-            </th>
-            <th class="gf sl rl">
-              <p
-                class="gn un zn gs"
-              >
-                Date
-              </p>
-            </th>
-            <th class="hf sl rl">
-              <p
-                class="gn un zn gs"
-              >
-                Status
-              </p>
-            </th>
-            <th class="if sl tm nm">
-              <p
-                class="in un zn gs"
-              >
-                Confirmation
-              </p>
-            </th>
-          </tr>
-        </thead>
+        <div class="container mt-5">
+            <table id="example" class="table table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>NAME</th>
+                    <th>UNIVERSITY</th>
 
-        <tbody>
+                    <th>#</th>
+                    <th>#</th>
+                </tr>
+            </thead>
+            <tbody>
 
             @foreach ($faculty as $item)
           <tr
             class="vi bj wr"
           >
 
-            <td class="_l rm sm">
-              <h5 class="un">{{$item->id}}</h5>
+            <td >
+              <h5 >{{$item->nom}}</h5>
 
             </td>
 
-            <td class="_l rl">
-              <h5 class="un">{{$item->nom}}</h5>
+            <td >
+              <h5 >{{$item->university_id}}</h5>
 
             </td>
 
-            <td class="_l rl">
+            <td >
                 <a href="{{route('faculty.edit', $item ->id)}}"
                      class="btn btn-success">edit</a>
 
             </td>
 
-            <td class="_l rl">
 
-                <a href="{{route('faculty.show', $item ->id)}}"
-                 class="btn btn-primary">show</a>
-
-            </td>
-
-            <td class="_l tm nm in">
+            <td >
 
             <form action="{{route('faculty.destroy', $item ->id)}}" method="POST">
             @csrf
@@ -1751,5 +1336,14 @@ class="pc mg pg zd qc yh jw oj kw f ea fa oa"
 </button>
   <script defer src="{{asset('parts/bundle.js')}}"></script></body>
 
+  <script defer src="{{asset('part/bundle.js')}}"></script>
+ <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src=" https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+  <script>
+    $(document).ready(function () {
+    $('#example').DataTable();
+});
+  </script>
   <!-- Mirrored from demo.tailgrids.com/templates/taildash/settings.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 May 2023 14:15:35 GMT -->
   </html>

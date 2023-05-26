@@ -1,7 +1,7 @@
 <?php
 
 namespace app\models;
-
+use App\Models\Etidiant;
 use Illuminate\Database\Eloquent\Model;
 
 class Demande extends Model
@@ -46,5 +46,10 @@ class Demande extends Model
     public function demande_seance()
     {
         return $this->hasMany('Seance', 'demande_id');
+    }
+
+    public function etidiant()
+    {
+        return $this->belongsTo(Etidiant::class, 'etidiants_id');
     }
 }

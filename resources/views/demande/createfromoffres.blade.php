@@ -8,6 +8,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Settings | Taildash - Tailwind CSS Admin Dashboard Template</title>
   <link rel="icon" href="favicon.ico"><link href="{{asset('part/style.css')}}" rel="stylesheet"></head>
+  <link id="pagestyle" href="{{asset('newpart/assets/css/material-dashboard.minaf3e.css?v=3.0.6')}}" rel="stylesheet" />
+  <script>
+    (function(a, s, y, n, c, h, i, d, e) {
+      s.className += ' ' + y;
+      h.start = 1 * new Date;
+      h.end = i = function() {
+        s.className = s.className.replace(RegExp(' ?' + y), '')
+      };
+      (a[n] = a[n] || []).hide = h;
+      setTimeout(function() {
+        i();
+        h.end = null
+      }, c);
+      h.timeout = c;
+    })(window, document.documentElement, 'async-hide', 'dataLayer', 4000, {
+      'GTM-K9BGS8K': true
+    });
+  </script>
+
+<script>
+    (function(i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '../../../../../www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-46172202-22', 'auto', {
+      allowLinker: true
+    });
+    ga('set', 'anonymizeIp', true);
+    ga('require', 'GTM-K9BGS8K');
+    ga('require', 'displayfeatures');
+    ga('require', 'linker');
+    ga('linker:autoLink', ["2checkout.com", "avangate.com"]);
+  </script>
+
+
+<script>
+    (function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        '../../../../../www.googletagmanager.com/gtm5445.html?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-NKDMSK6');
+  </script>
+
+
+
+<script defer data-site="demos.creative-tim.com" src="{{asset('newpart/api.nepcha.com/js/nepcha-analytics.js')}}"></script>
   <body
     x-data="{ page: 'settings', 'loaded': true, 'darkMode': true, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }"
     x-init="
@@ -95,7 +157,7 @@
                 />
               </div>
 
-             <div class="db" >
+             <div class="db">
                 <label
                   class="jc un zn gs fb"
                   for="email"
@@ -106,11 +168,11 @@
                   type="text"
                   name="etidiants_id"
                   id="email"
-                  placeholder="etidiants_id"
-                  value="{{$maitrestage_id}}"
+                  placeholder="{{$etidiantid}}"
+                  value="{{$etidiantid}}"
                 />
               </div>
-               <div class="db" style="display: none">
+               <div class="db" >
                 <label
                   class="jc un zn gs fb"
                   for="email"
@@ -132,14 +194,32 @@
                     >dateinsc</label
                   >
                   <input
+
                     class="kkk nj qh ni bj jr fr ps zn gs il cm zr wr"
                     type="text"
                     name="dateinsc"
                     id="lastName"
                     placeholder="dateinsc"
-                    value=""
+                    value="{{$offreElements->first()->datedebut}}"
+                    readonly
                   />
                 </div>
+                <div class="db">
+                    <label
+                      class="jc un zn gs fb"
+                      for="lastName"
+                      >datefin</label
+                    >
+                    <input
+                      class="kkk nj qh ni bj jr fr ps zn gs il cm zr wr"
+                      type="text"
+                      name="datefin"
+                      id="lastName"
+                      placeholder="datefin"
+                      value="{{$offreElements->first()->datefinish}}"
+                      readonly
+                    />
+                  </div>
                 <div class="db">
                     <label
                       class="jc un zn gs fb"
@@ -152,22 +232,8 @@
                       name="diplome"
                       id="lastName"
                       placeholder="diplome"
-                      value=""
-                    />
-                  </div>
-                  <div class="db">
-                    <label
-                      class="jc un zn gs fb"
-                      for="lastName"
-                      >dure</label
-                    >
-                    <input
-                      class="kkk nj qh ni bj jr fr ps zn gs il cm zr wr"
-                      type="text"
-                      name="dure"
-                      id="lastName"
-                      placeholder="dure"
-                      value=""
+                      value="{{$offreElements->first()->diplome}}"
+                      readonly
                     />
                   </div>
                   <div class="db">
@@ -181,10 +247,12 @@
                       type="text"
                       name="period"
                       id="lastName"
-                      placeholder="Phone Number"
-                      value="period"
+                      placeholder="period"
+                      value="{{$offreElements->first()->period}}"
+                      readonly
                     />
                   </div>
+
                   <div class="db" style="display: none">
                     <label
                       class="jc un zn gs fb"
@@ -198,6 +266,7 @@
                       id="lastName"
                       placeholder=""
                       value="motif"
+                      readonly
                     />
                   </div>
                   <div class="db">
@@ -211,8 +280,9 @@
                       type="text"
                       name="theme"
                       id="lastName"
-                      placeholder="Phone Number"
-                      value=""
+                      placeholder=" theme"
+                      value="{{$offreElements->first()->theme}}"
+                      readonly
                     />
                   </div>
 
@@ -228,7 +298,79 @@
 
         </form>
     </div>
+    <script src="{{asset('newpart/assets/js/core/popper.min.js')}}"></script>
+    <script src="{{asset('newpart/assets/js/core/bootstrap.min.js')}}"></script>
+    <script src="{{asset('newpart/assets/js/plugins/perfect-scrollbar.min.js')}}"></script>
+    <script src="{{asset('newpart/assets/js/plugins/smooth-scrollbar.min.js')}}"></script>
+    <script src="{{asset('newpart/assets/js/plugins/choices.min.js')}}"></script>
+    <script src="{{asset('newpart/assets/js/plugins/quill.min.js')}}"></script>
+    <script src="{{asset('newpart/assets/js/plugins/flatpickr.min.js')}}"></script>
+    <script src="{{asset('newpart/assets/js/plugins/dropzone.min.js')}}"></script>
+    <script>
+        if (document.getElementById('editor')) {
+          var quill = new Quill('#editor', {
+            theme: 'snow' // Specify theme in configuration
+          });
+        }
 
+        if (document.getElementById('choices-multiple-remove-button')) {
+          var element = document.getElementById('choices-multiple-remove-button');
+          const example = new Choices(element, {
+            removeItemButton: true
+          });
+
+          example.setChoices(
+            [{
+                value: 'One',
+                label: 'Label One',
+                disabled: true
+              },
+              {
+                value: 'Two',
+                label: 'Label Two',
+                selected: true
+              },
+              {
+                value: 'Three',
+                label: 'Label Three'
+              },
+            ],
+            'value',
+            'label',
+            false,
+          );
+        }
+
+        if (document.querySelector('.datetimepicker')) {
+          flatpickr('.datetimepicker', {
+            allowInput: true
+          }); // flatpickr
+        }
+
+        Dropzone.autoDiscover = false;
+        var drop = document.getElementById('dropzone')
+        var myDropzone = new Dropzone(drop, {
+          url: "/file/post",
+          addRemoveLinks: true
+
+        });
+      </script>
+
+    <script src="{{asset('newpart/assets/js/plugins/dragula/dragula.min.js')}}"></script>
+    <script src="{{asset('newpart/assets/js/plugins/jkanban/jkanban.js')}}"></script>
+    <script>
+        var win = navigator.platform.indexOf('Win') > -1;
+        if (win && document.querySelector('#sidenav-scrollbar')) {
+          var options = {
+            damping: '0.5'
+          }
+          Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+        }
+      </script>
+
+    <script async defer src="{{asset('newpart/buttons.github.io/buttons.js')}}"></script>
+
+    <script src="{{asset('newpart/assets/js/material-dashboard.minaf3e.js?v=3.0.6')}}"></script>
     <script defer src="{{asset('parts/bundle.js')}}"></script></body>
 
     <!-- Mirrored from demo.tailgrids.com/templates/taildash/settings.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 May 2023 14:15:35 GMT -->

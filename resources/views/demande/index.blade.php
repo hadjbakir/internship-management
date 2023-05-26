@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +8,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Settings | Taildash - Tailwind CSS etidiant Dashboard Template</title>
-  <link rel="icon" href="favicon.ico"><link href="{{asset('part/style.css')}}" rel="stylesheet"></head>
+  <link rel="icon" href="favicon.ico">
+  <link href="{{asset('part/style.css')}}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+</head>
+<body>
+
+</body>
+
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from demo.tailgrids.com/templates/taildash/settings.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 May 2023 14:15:34 GMT -->
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings | Taildash - Tailwind CSS etidiant Dashboard Template</title>
+  <link rel="icon" href="favicon.ico">
+  <link href="{{asset('part/style.css')}}" rel="stylesheet">
+
+</head>
   <body
     x-data="{ page: 'settings', 'loaded': true, 'darkMode': true, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }"
     x-init="
@@ -1019,7 +1042,7 @@
             </li>
             <li>
               <a
-                href="{{route('maitrest.setting')}}"
+                href="{{route('etidiant.setting')}}"
                 class="un mn qv lc mg ah gp dp zq"
               >
                 <svg class="hk" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1030,7 +1053,7 @@
               </a>
             </li>
           </ul>
-          <form action="{{route('maitrest.logout')}}" method="get">
+          <form action="{{route('etidiant.logout')}}" method="get">
           <button class="un mn qv lc mg ah gp dp zq ml ql">
             <svg class="hk" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M15.5375 0.618744H11.6531C10.7594 0.618744 10.0031 1.37499 10.0031 2.26874V4.64062C10.0031 5.05312 10.3469 5.39687 10.7594 5.39687C11.1719 5.39687 11.55 5.05312 11.55 4.64062V2.23437C11.55 2.16562 11.5844 2.13124 11.6531 2.13124H15.5375C16.3625 2.13124 17.0156 2.78437 17.0156 3.60937V18.3562C17.0156 19.1812 16.3625 19.8344 15.5375 19.8344H11.6531C11.5844 19.8344 11.55 19.8 11.55 19.7312V17.3594C11.55 16.9469 11.2062 16.6031 10.7594 16.6031C10.3125 16.6031 10.0031 16.9469 10.0031 17.3594V19.7312C10.0031 20.625 10.7594 21.3812 11.6531 21.3812H15.5375C17.2219 21.3812 18.5625 20.0062 18.5625 18.3562V3.64374C18.5625 1.95937 17.1875 0.618744 15.5375 0.618744Z" fill=""/>
@@ -1087,7 +1110,7 @@
       >
         <!-- Setting Card One -->
 
-        <div
+      {{--   <div
           class="yd wtt qh ni bj wr nj xr cl"
         >
 
@@ -1112,7 +1135,7 @@
                   <tr
                     class="vi bj wr"
                   >
-                  
+
                     <th class="ff sl rm sm">
                       <p
                         class="gn un zn gs"
@@ -1266,11 +1289,7 @@
                             class="btn btn-success">edit</a>
 
                     </td>
-                     <td class="_l rl">
-                        <a href="{{ route('demande.createatte', $item->id) }}"
-                            class="btn btn-primary">Create attestation</a>
 
-                    </td>
 
 
                     <td class="_l tm nm in">
@@ -1299,9 +1318,98 @@
             </div>
           </div>
 
+        --}}
         <!-- Setting Card Two -->
+        <div class="container mt-5">
+            <table id="example" class="table table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>ST ACP</th>
+                    <th>DEP ACP</th>
+                    <th>MASTER</th>
+                    <th>DATE INS</th>
+                    <th>DATE FIN</th>
 
+                    <th>PERIOD</th>
+                    <th>THEME</th>
+                    <th>#</th>
+                    <th>#</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($demande as $item)
+                <tr>
+                    <td> @if ($item->stageacp == 'notyet')
+                        <p class="nc mg pg th pj/10 jl am mn un go">
+                          <span class="ub jc dd he th pj"></span>
+                          Pending
+                        @elseif ($item->stageacp == 'yes')
+                        <p
+                        class="nc mg pg th xj/10 jl am mn un io"
+                      >
+                        <span
+                          class="ub jc dd he th xj"
+                        ></span>
+                        Accepte
+                      </p>
+                      @elseif ($item->stageacp == 'refuse')
+                  <p
+                            class="nc mg pg th sj/10 jl am mn un fo"
+                          >
+                            <span
+                              class="ub jc dd he th sj"
+                            ></span>
+                            Refuse
+                          </p>
 
+                        @endif</td>
+                    <td>@if ($item->depacp == 'notyet')
+                        <p class="nc mg pg th pj/10 jl am mn un go">
+                          <span class="ub jc dd he th pj"></span>
+                          Pending
+                        @elseif ($item->depacp == 'yes')
+                        <p
+                        class="nc mg pg th xj/10 jl am mn un io"
+                      >
+                        <span
+                          class="ub jc dd he th xj"
+                        ></span>
+                        Accepte
+                      </p>
+                      @elseif ($item->depacp == 'refuse')
+                  <p
+                            class="nc mg pg th sj/10 jl am mn un fo"
+                          >
+                            <span
+                              class="ub jc dd he th sj"
+                            ></span>
+                            Refuse
+                          </p>
+
+                        @endif</td>
+                    <td>{{ $item->maitrestage_id }}</td>
+                    <td>{{ $item->dateinsc }}</td>
+                    <td>{{ $item->datefin }}</td>
+                    <td>{{ $item->period }}</td>
+                    <td>{{ $item->theme }}</td>
+                    <td> <a href="{{route('demande.edit', $item ->id)}}"
+                        class="btn btn-success">edit</a></td>
+                    <td> <form action="{{route('demande.destroy', $item ->id)}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                          <button
+                            type="submit"
+                            class="nc mg pg sh ni ej ol rl un _n qq _q gp dp"
+                          >
+                            Delete
+                          </button>
+                        </form></td>
+                </tr>
+                @endforeach
+            </tbody>
+
+        </table></div>
+<!-- Setting Card Two -->
             {{-- @if ($errors->any())
             <ul class="alert alert-danger">
                 @foreach ($errors->all() as $error)
@@ -1339,7 +1447,16 @@ class="pc mg pg zd qc yh jw oj kw f ea fa oa"
 </button>
 
 <!-- ====== Back To Top End ===== -->
-<script defer src="{{asset('part/bundle.js')}}"></script></body>
+<script defer src="{{asset('part/bundle.js')}}"></script>
+ <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src=" https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+  <script>
+    $(document).ready(function () {
+    $('#example').DataTable();
+});
+  </script>
+</body>
 
 <!-- Mirrored from demo.tailgrids.com/templates/taildash/settings.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 May 2023 14:15:35 GMT -->
 </html>

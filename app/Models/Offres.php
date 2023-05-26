@@ -13,9 +13,12 @@ class Offres extends Model
         'id',
         'maitrestages_id',
         'datedebut',
-        'dure',
+        'datefinish',
+        'period',
         'nmbrpostes',
         'poste',
+        'diplome',
+        'theme'
     ];
 
 

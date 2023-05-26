@@ -37,13 +37,13 @@ class ChefdController extends Controller
                     'passwords update succesfuly');
 
                 }else{
-                    return redirect()->back()->with('error_message',
+                    return redirect()->back()->with('succes_message',
                     'passwords not match');
                 }
 
             }else{
 
-                return redirect()->back()->with('error_message','current password
+                return redirect()->back()->with('succes_message','current password
                 is incorrect');
             }
 
@@ -66,7 +66,7 @@ class ChefdController extends Controller
             'numtlf' => $data['numtlf'],
             'email' =>$data['email'],
             'birthday' => $data['birthday'],
-
+            'sexe' => $data['sexe'],
 
 
             ]);return redirect()->back()->with('succes_message',

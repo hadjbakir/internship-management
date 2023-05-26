@@ -7,6 +7,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Settings | Taildash - Tailwind CSS etidiant Dashboard Template</title>
+  <link rel="icon" href="favicon.ico">
+  <link href="{{asset('part/style.css')}}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+</head>
+
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from demo.tailgrids.com/templates/taildash/settings.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 May 2023 14:15:34 GMT -->
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings | Taildash - Tailwind CSS etidiant Dashboard Template</title>
   <link rel="icon" href="favicon.ico"><link href="{{asset('part/style.css')}}" rel="stylesheet"></head>
   <body
     x-data="{ page: 'settings', 'loaded': true, 'darkMode': true, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }"
@@ -231,7 +247,7 @@
             fill="#"
           />
         </svg>
-        Calendar
+        Offres
       </a>
     </li>
     <!-- Menu Item Calendar -->
@@ -1112,88 +1128,54 @@
       >
         <!-- Setting Card One -->
 
-        <div
-          class="yd wtt qh ni bj wr nj xr cl"
-        >
 
 
 
-          <div class="rh ni bj wr nj xr">
-            <div class="nf oh">
-              <table class="yd yf rh">
-                <thead>
-                  <tr
-                    class="vi bj wr"
-                  >
-                    <th class="ff sl rm sm">
-                      <p
-                        class="gn un zn gs"
-                      >
-                      maitrestage_id
-                      </p>
-                    </th>
-                    <th class="ff sl rl">
-                      <p
-                        class="gn un zn gs"
-                      >
-                      datedebut
-                      </p>
-                    </th>
-                    <th class="min-w-[160px] sl rl">
-                      <p
-                        class="gn un zn gs"
-                      >
-                      dure
-                      </p>
-                    </th>
-                    <th class="gf sl rl">
-                      <p
-                        class="gn un zn gs"
-                      >
-                      nmbrpostes
-                      </p>
-                    </th>
-                    <th class="hf sl rl">
-                      <p
-                        class="gn un zn gs"
-                      >
-                      poste
-                      </p>
-                    </th>
 
+        <div class="container mt-5">
+            <table id="example" class="table table-striped" style="width:100%">
+            <thead>
+                <tr>
 
+                    <th>DATE START</th>
+                    <th>DATE FIN</th>
+                    <th>PERIOD</th>
+                    <th>N POSTE</th>
+                    <th>POSTE</th>
 
-                  </tr>
-                </thead>
+                    <th>#</th>
+                    <th>#</th>
 
-                <tbody>
+                </tr>
+            </thead>
+            <tbody>
 
                     @foreach ($offres as $item)
                   <tr
-                    class="vi bj wr"
+                    
                   >
 
-                    <td class="_l rm sm">
-                      <h5 class="un">{{ $item->maitrestages_id }}</h5>
+                    <td >
+                      <h5 >{{ $item->maitrestages_id }}</h5>
 
                     </td>
 
-                    <td class="_l rl">
-                      <h5 class="un">{{ $item->datedebut }}</h5>
+                    <td >
+                      <h5 >{{ $item->datedebut }}</h5>
 
                     </td>
 
-                    <td class="_l rl">
-                        <h5 class="un">{{ $item->dure }}</h5>
+                    <td >
+                        <h5 >{{ $item->period }}</h5>
                     </td>
-                    <td class="_l rl">
-                        <h5 class="un">{{ $item->nmbrpostes }}</h5>
+                    <td >
+                        <h5 >{{ $item->nmbrpostes }}</h5>
                     </td>
-                    <td class="_l rl">
-                        <h5 class="un">{{ $item->poste }}</h5>
+                    <td >
+                        <h5 >{{ $item->poste }}</h5>
                     </td>
 
-                    <td class="_l rl">
+                    <td >
                         <a href="{{route('offres.edit', $item ->id)}}"
                             class="btn btn-success">edit</a>
 
@@ -1264,7 +1246,17 @@ class="pc mg pg zd qc yh jw oj kw f ea fa oa"
 </button>
 
 <!-- ====== Back To Top End ===== -->
-<script defer src="{{asset('part/bundle.js')}}"></script></body>
+<script defer src="{{asset('part/bundle.js')}}"></script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src=" https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+  <script>
+    $(document).ready(function () {
+    $('#example').DataTable();
+});
+  </script>
+</body>
 
 <!-- Mirrored from demo.tailgrids.com/templates/taildash/settings.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 May 2023 14:15:35 GMT -->
 </html>

@@ -201,7 +201,7 @@
                 <label>Date</label>
                     <input
                     class="datetimepicker  kkk nj qh ni bj jr fr ps zn gs il cm zr wr"
-                     class="form-control datetimepicker" name="date" type="text" data-input>
+                      name="date" type="text" data-input>
               </div>
               <div class="db">
               <div class="form-group row">

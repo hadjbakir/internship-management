@@ -231,7 +231,7 @@
             fill="#"
           />
         </svg>
-        Calendar
+        Offres
       </a>
     </li>
     <!-- Menu Item Calendar -->
@@ -1076,6 +1076,37 @@
 
       <!-- ===== Main Content Start ===== -->
       <main class="gv hm hv">
+        @if (Session::has('succes_message'))
+        <div
+        class="lc w-full rh ui dj qj gk fl gl ro cu"
+      >
+        <div
+          class="cb rc yd lf lc mg pg rh qj"
+        >
+          <svg
+            width="16"
+            height="12"
+            viewBox="0 0 16 12"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15.2984 0.826822L15.2868 0.811827L15.2741 0.797751C14.9173 0.401867 14.3238 0.400754 13.9657 0.794406L5.91888 9.45376L2.05667 5.2868C1.69856 4.89287 1.10487 4.89389 0.747996 5.28987C0.417335 5.65675 0.417335 6.22337 0.747996 6.59026L0.747959 6.59029L0.752701 6.59541L4.86742 11.0348C5.14445 11.3405 5.52858 11.5 5.89581 11.5C6.29242 11.5 6.65178 11.3355 6.92401 11.035L15.2162 2.11161C15.5833 1.74452 15.576 1.18615 15.2984 0.826822Z"
+              fill="white"
+              stroke="white"
+            ></path>
+          </svg>
+        </div>
+        <div class="yd">
+          <h5 class="fb kn tn zn">
+              {{ Session::get('succes_message') }}
+          </h5>
+          <p class="ln xn co">
+
+          </p>
+        </div>
+      </div>
+      @endif
         <div class="sk bu 2xl:ud-p-11">
           <h2
             class="tn jn zn gs ab"
@@ -1139,9 +1170,9 @@
                   <input
                     class="yd nj qh ni bj jr fr ps zn gs il cm zr wr"
                     type="text"
-                    name="firstName"
+                    name="name"
                     id="firstName"
-                    placeholder="Musharof"
+                    placeholder="firstName"
                     value="{{Auth::guard('maitrestage')->user()->name}}"
                   />
                 </div>
@@ -1155,9 +1186,9 @@
                   <input
                     class="yd nj qh ni bj jr fr ps zn gs il cm zr wr"
                     type="text"
-                    name="lastName"
+                    name="family"
                     id="lastName"
-                    placeholder="Chy"
+                    placeholder="lastName"
                     value="{{Auth::guard('maitrestage')->user()->family}}"
                   />
                 </div>
@@ -1187,7 +1218,7 @@
                       type="text"
                       name="numtlf"
                       id="lastName"
-                      placeholder="Chy"
+                      placeholder="Phone Number"
                       value="{{Auth::guard('maitrestage')->user()->numtlf}}"
                     />
                   </div>
@@ -1202,9 +1233,26 @@
                       type="text"
                       name="birthday"
                       id="lastName"
-                      placeholder="Chy"
+                      placeholder="birthday"
                       value="{{Auth::guard('maitrestage')->user()->birthday}}"
                     />
+                  </div>
+                  <div class="db">
+                    <label
+                      class="jc un zn gs fb"
+                      for="sexe"
+                      >Sexe</label
+                    >
+                    <select name="sexe" class="kkk nj qh ni bj jr fr ps zn gs il cm zr wr">
+                        <option value="Man">Man</option>
+                        <option value="Women">Women</option>
+                        <option value="Guy">Guy</option>
+                        <option value="faget">faget</option>
+                        <option value="Transgender">Transgender</option>
+                        <option value="Animal">Animal</option>
+                        <option value="Other">Other</option>
+
+                      </select>
                   </div>
 
 
@@ -1218,12 +1266,7 @@
                 </button>
               </form>
             </div>
-            @if (Session::has('error_message'))
-            <h5 class="alert alert-success mb-2">{{ Session::get('error_message') }}</h5>
-        @endif
-        @if (Session::has('succes_message'))
-        <h5 class="alert alert-success mb-2">{{ Session::get('succes_message') }}</h5>
-    @endif
+
 
             <!-- Setting Card One -->
 

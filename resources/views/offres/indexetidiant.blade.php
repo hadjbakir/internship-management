@@ -182,7 +182,7 @@
       <li>
         <a
           class="nr h un lc mg sg qh gp dp nl rl _q qq"
-          href=""
+          href="{{route('demande.create')}}"
           @click="selected = (selected === 'Inbox' ? '':'Inbox')"
           :class="{ 'eo oj': (selected === 'Inbox') && (page === 'inbox') }"
         >
@@ -203,7 +203,7 @@
               fill=""
             />
           </svg>
-          Create Offre
+          Create demande
         </a>
       </li>
       <!-- Menu Item Inbox -->

@@ -1167,7 +1167,7 @@
                     type="text"
                     name="family"
                     id="lastName"
-                    placeholder="Chy"
+                    placeholder="Last Name"
                     value="{{Auth::guard('etidiant')->user()->family}}"
                   />
                 </div>
@@ -1192,14 +1192,14 @@
                   <label
                     class="jc un zn gs fb"
                     for="website"
-                    >Specialite</label
+                    >Speciality</label
                   >
                   <input
                     class="yd nj qh ni bj jr fr ps zn gs il cm zr wr"
                     type="text"
                     name="specialie"
                     id="website"
-                    placeholder="exampla@domain.com"
+                    placeholder="Speciality"
                     value="{{Auth::guard('etidiant')->user()->specialie}}"
                   />
                 </div>
@@ -1208,14 +1208,14 @@
                     <label
                       class="jc un zn gs fb"
                       for="website"
-                      >Semestre</label
+                      >Semester</label
                     >
                     <input
                       class="yd nj qh ni bj jr fr ps zn gs il cm zr wr"
                       type="text"
                       name="semestre"
                       id="semestre"
-                      placeholder="exampla@domain.com"
+                      placeholder="Semester"
                       value="{{Auth::guard('etidiant')->user()->semestre}}"
                     />
                   </div>
@@ -1223,14 +1223,14 @@
                     <label
                       class="jc un zn gs fb"
                       for="website"
-                      >Diplome</label
+                      >Degree</label
                     >
                     <input
                       class="yd nj qh ni bj jr fr ps zn gs il cm zr wr"
                       type="text"
                       name="diplome"
                       id="diplome"
-                      placeholder="exampla@domain.com"
+                      placeholder="Degree"
                       value="{{Auth::guard('etidiant')->user()->diplome}}"
                     />
                   </div>
@@ -1245,7 +1245,7 @@
                       type="text"
                       name="numtlf"
                       id="phone"
-                      placeholder="exampla@domain.com"
+                      placeholder="Phone Number"
                       value="{{Auth::guard('etidiant')->user()->numtlf}}"
                     />
                   </div>
@@ -1260,7 +1260,7 @@
                       type="text"
                       name="birthday"
                       id="birthday"
-                      placeholder="exampla@domain.com"
+                      placeholder="Birthday"
                       value="{{Auth::guard('etidiant')->user()->birthday}}"
                     />
                   </div>

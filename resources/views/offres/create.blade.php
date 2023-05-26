@@ -8,6 +8,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Settings | Taildash - Tailwind CSS etidiant Dashboard Template</title>
   <link rel="icon" href="favicon.ico"><link href="{{asset('part/style.css')}}" rel="stylesheet"></head>
+  <link id="pagestyle" href="{{asset('newpart/assets/css/material-dashboard.minaf3e.css?v=3.0.6')}}" rel="stylesheet" />
+ <script>
+    (function(i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '../../../../../www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-46172202-22', 'auto', {
+      allowLinker: true
+    });
+    ga('set', 'anonymizeIp', true);
+    ga('require', 'GTM-K9BGS8K');
+    ga('require', 'displayfeatures');
+    ga('require', 'linker');
+    ga('linker:autoLink', ["2checkout.com", "avangate.com"]);
+  </script>
+
+
+<script>
+    (function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        '../../../../../www.googletagmanager.com/gtm5445.html?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-NKDMSK6');
+  </script>
+
+
+
+<script defer data-site="demos.creative-tim.com" src="{{asset('newpart/api.nepcha.com/js/nepcha-analytics.js')}}"></script>
   <body
     x-data="{ page: 'settings', 'loaded': true, 'darkMode': true, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }"
     x-init="
@@ -231,7 +275,7 @@
             fill="#"
           />
         </svg>
-        Calendar
+        Offres
       </a>
     </li>
     <!-- Menu Item Calendar -->
@@ -1054,7 +1098,7 @@
               </a>
             </li>
           </ul>
-          <form action="{{route('etidiant.logout')}}" method="get">
+          <form action="{{route('maitrest.logout')}}" method="get">
           <button class="un mn qv lc mg ah gp dp zq ml ql">
             <svg class="hk" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M15.5375 0.618744H11.6531C10.7594 0.618744 10.0031 1.37499 10.0031 2.26874V4.64062C10.0031 5.05312 10.3469 5.39687 10.7594 5.39687C11.1719 5.39687 11.55 5.05312 11.55 4.64062V2.23437C11.55 2.16562 11.5844 2.13124 11.6531 2.13124H15.5375C16.3625 2.13124 17.0156 2.78437 17.0156 3.60937V18.3562C17.0156 19.1812 16.3625 19.8344 15.5375 19.8344H11.6531C11.5844 19.8344 11.55 19.8 11.55 19.7312V17.3594C11.55 16.9469 11.2062 16.6031 10.7594 16.6031C10.3125 16.6031 10.0031 16.9469 10.0031 17.3594V19.7312C10.0031 20.625 10.7594 21.3812 11.6531 21.3812H15.5375C17.2219 21.3812 18.5625 20.0062 18.5625 18.3562V3.64374C18.5625 1.95937 17.1875 0.618744 15.5375 0.618744Z" fill=""/>
@@ -1139,7 +1183,7 @@
                 >datedebut</label
               >
               <input
-                class="kkk nj qh ni bj jr fr ps zn gs il cm zr wr"
+                class="datetimepicker kkk nj qh ni bj jr fr ps zn gs il cm zr wr"
                 type=""
                 name="datedebut"
                 id="firstName"
@@ -1147,25 +1191,39 @@
                 value=""
               />
             </div>
-
+            <div class="db" >
+                <label
+                  class="jc un zn gs fb"
+                  for="firstName"
+                  >datefinish</label
+                >
+                <input
+                  class="datetimepicker kkk nj qh ni bj jr fr ps zn gs il cm zr wr"
+                  type=""
+                  name="datefinish"
+                  id="firstName"
+                  placeholder="datefinish"
+                  value=""
+                />
+              </div>
             <div class="db" >
               <label
                 class="jc un zn gs fb"
                 for="family"
-                >dure</label
+                >period</label
               >
               <input
 
                 class="kkk nj qh ni bj jr fr ps zn gs il cm zr wr"
                 type=""
-                name="dure"
+                name="period"
                 id="family"
-                placeholder="dure"
+                placeholder="period"
                 value=""
               />
             </div>
 
-            <div class="db" >
+            <div class="db" style="display:none">
               <label
                 class="jc un zn gs fb"
                 for="email"
@@ -1184,7 +1242,7 @@
             name="maitrestages_id"
             id="family"
             placeholder="maitrestages_id"
-            value=""
+            value="{{$maitrestId}}"
           />
             </div>
             <div class="db">
@@ -1217,8 +1275,37 @@
                   value=""
                 />
             </div>
+            <div class="db">
+                <label
+                  class="jc un zn gs fb"
+                  for="sexe"
+                  >diplome</label
+                >
+                <input
+                  class="kkk nj qh ni bj jr fr ps zn gs il cm zr wr"
+                  type="text"
+                  name="diplome"
+                  id="lastName"
+                  placeholder="diplome"
+                  value=""
+                />
+            </div>
 
-
+            <div class="db">
+                <label
+                  class="jc un zn gs fb"
+                  for="sexe"
+                  >theme</label
+                >
+                <input
+                  class="kkk nj qh ni bj jr fr ps zn gs il cm zr wr"
+                  type="text"
+                  name="theme"
+                  id="lastName"
+                  placeholder="theme"
+                  value=""
+                />
+            </div>
 
 
 
@@ -1435,7 +1522,86 @@ class="pc mg pg zd qc yh jw oj kw f ea fa oa"
 <path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z" />
 </svg>
 </button>
+<script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous">
+  </script>
+  <script src="{{asset('novpart/dist/app.js')}}"></script>
+  <script src="{{asset('newpart/assets/js/core/popper.min.js')}}"></script>
+<script src="{{asset('newpart/assets/js/core/bootstrap.min.js')}}"></script>
+<script src="{{asset('newpart/assets/js/plugins/perfect-scrollbar.min.js')}}"></script>
+<script src="{{asset('newpart/assets/js/plugins/smooth-scrollbar.min.js')}}"></script>
+<script src="{{asset('newpart/assets/js/plugins/choices.min.js')}}"></script>
+<script src="{{asset('newpart/assets/js/plugins/quill.min.js')}}"></script>
+<script src="{{asset('newpart/assets/js/plugins/flatpickr.min.js')}}"></script>
+<script src="{{asset('newpart/assets/js/plugins/dropzone.min.js')}}"></script>
+<script>
+    if (document.getElementById('editor')) {
+      var quill = new Quill('#editor', {
+        theme: 'snow' // Specify theme in configuration
+      });
+    }
 
+    if (document.getElementById('choices-multiple-remove-button')) {
+      var element = document.getElementById('choices-multiple-remove-button');
+      const example = new Choices(element, {
+        removeItemButton: true
+      });
+
+      example.setChoices(
+        [{
+            value: 'One',
+            label: 'Label One',
+            disabled: true
+          },
+          {
+            value: 'Two',
+            label: 'Label Two',
+            selected: true
+          },
+          {
+            value: 'Three',
+            label: 'Label Three'
+          },
+        ],
+        'value',
+        'label',
+        false,
+      );
+    }
+
+    if (document.querySelector('.datetimepicker')) {
+      flatpickr('.datetimepicker', {
+        allowInput: true
+      }); // flatpickr
+    }
+
+    Dropzone.autoDiscover = false;
+    var drop = document.getElementById('dropzone')
+    var myDropzone = new Dropzone(drop, {
+      url: "/file/post",
+      addRemoveLinks: true
+
+    });
+  </script>
+
+<script src="{{asset('newpart/assets/js/plugins/dragula/dragula.min.js')}}"></script>
+<script src="{{asset('newpart/assets/js/plugins/jkanban/jkanban.js')}}"></script>
+<script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+      var options = {
+        damping: '0.5'
+      }
+      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+  </script>
+
+<script async defer src="{{asset('newpart/buttons.github.io/buttons.js')}}"></script>
+
+<script src="{{asset('newpart/assets/js/material-dashboard.minaf3e.js?v=3.0.6')}}"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v52afc6f149f6479b8c77fa569edb01181681764108816" integrity="sha512-jGCTpDpBAYDGNYR5ztKt4BQPGef1P0giN6ZGVUi835kFF88FOmmn8jBQWNgrNd8g/Yu421NdgWhwQoaOPFflDw==" data-cf-beacon='{"rayId":"7ca32015cc155233","version":"2023.4.0","r":1,"b":1,"token":"1b7cbb72744b40c580f8633c6b62637e","si":100}' crossorigin="anonymous"></script>
 <!-- ====== Back To Top End ===== -->
 <script defer src="{{asset('part/bundle.js')}}"></script></body>
 

@@ -7,6 +7,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Settings | Taildash - Tailwind CSS etidiant Dashboard Template</title>
+  <link rel="icon" href="favicon.ico">
+  <link href="{{asset('part/style.css')}}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+</head>
+
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from demo.tailgrids.com/templates/taildash/settings.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 May 2023 14:15:34 GMT -->
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings | Taildash - Tailwind CSS etidiant Dashboard Template</title>
   <link rel="icon" href="favicon.ico"><link href="{{asset('part/style.css')}}" rel="stylesheet"></head>
   <body
     x-data="{ page: 'settings', 'loaded': true, 'darkMode': true, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }"
@@ -231,7 +247,7 @@
               fill="#"
             />
           </svg>
-          Calendar
+          Offres
         </a>
       </li>
       <!-- Menu Item Calendar -->
@@ -1110,8 +1126,54 @@
         class="lc kg hg zt yg _b"
       >
         <!-- Setting Card One -->
+        <div class="container mt-5">
+            <table id="example" class="table table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>STATUS</th>
+                    <th>FIRST NAME</th>
+                    <th>LAST NAME</th>
 
-        <div
+                    <th>DATE INS</th>
+                    <th>DATE FIN</th>
+
+                    <th>PERIOD</th>
+                    <th>THEME</th>
+                    <th>#</th>
+                    <th>#</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($demande as $item)
+                <tr>
+                    <td>  <p
+                        class="nc mg pg th xjjj/10 jl am mn un iooo"
+                      >
+                        <span
+                          class="ub jc dd he th xjjj"
+                        ></span>
+                        Finished
+                      </p></td>
+
+                    <td> {{ $item->etidiant->name }} </td>
+                    <td>{{ $item->etidiant->family }} </td>
+                    <td>{{ $item->dateinsc }}</td>
+                    <td>{{ $item->datefin }}</td>
+                    <td>{{ $item->period }}</td>
+                    <td>{{ $item->theme }}</td>
+                    <td>  <a href="{{ route('demande.createatte', $item->id) }}"
+                        class="btn btn-primary">Attestation</a></td>
+
+
+                <td>  <a href="{{ route('fichenotation.create', $item->id) }}"
+                    class="btn btn-primary">Notation</a></td>
+
+            </tr>
+                @endforeach
+            </tbody>
+
+        </table></div>
+      {{--   <div
           class="yd wtt qh ni bj wr nj xr cl"
         >
 
@@ -1248,19 +1310,20 @@
                         <h5 class="un">{{ $item->theme }}</h5>
                     </td>
 
-                    <td class="_l rl">
-                        <a href="{{route('demande.editmaitrestage', $item ->id)}}"
-                            class="btn btn-success">edit</a>
 
-                    </td>
-                    <td class="col-sm">
 
-                        {{--    <a href="{{ route('demande.createatte',
-                            ['id' => $item->id]) }}" class="btn btn-primary">Create attestation</a>
---}}
+                        <td class="_l rl">
+                            <a href="{{ route('demande.createatte', $item->id) }}"
+                                class="btn btn-primary">Attestation</a>
+
+                        </td>
+                        <td class="_l rl">
+                            <a href="{{ route('fichenotation.create', $item->id) }}"
+                                class="btn btn-primary">Notation</a>
+
                         </td>
 
-                    <td class="_l tm nm in">
+
 
 
 
@@ -1272,7 +1335,7 @@
               </table>
             </div>
           </div>
-        <!-- Setting Card Two -->
+         --}}<!-- Setting Card Two -->
 
 
             {{-- @if ($errors->any())
@@ -1314,6 +1377,15 @@ class="pc mg pg zd qc yh jw oj kw f ea fa oa"
 <!-- ====== Back To Top End ===== -->
 <script defer src="{{asset('part/bundle.js')}}"></script></body>
 
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src=" https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+  <script>
+    $(document).ready(function () {
+    $('#example').DataTable();
+});
+  </script>
 <!-- Mirrored from demo.tailgrids.com/templates/taildash/settings.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 May 2023 14:15:35 GMT -->
 </html>
 

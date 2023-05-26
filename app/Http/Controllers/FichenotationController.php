@@ -15,11 +15,11 @@ class FichenotationController extends Controller
         return view('fichenotation.index', compact('fichenotation'));
     }
 
-    public function create()
-    {
-        $demande = Demande ::all();
-        return view('fichenotation.create', compact('demande'));
-    }
+    public function create(Demande $demande)
+{
+    $demandeId = $demande->id;
+    return view('fichenotation.create', compact('demandeId'));
+}
 
     public function store(Request $request)
     {

@@ -173,13 +173,13 @@ public function destroyentrp(entrp $entrp)
                     'passwords update succesfuly');
 
                 }else{
-                    return redirect()->back()->with('error_message',
+                    return redirect()->back()->with('succes_message',
                     'passwords not match');
                 }
 
             }else{
 
-                return redirect()->back()->with('error_message','current password
+                return redirect()->back()->with('succes_message','current password
                 is incorrect');
             }
 
@@ -204,6 +204,28 @@ public function destroyentrp(entrp $entrp)
 
             ]);return redirect()->back()->with('succes_message',
             'prifile update succesfuly');
+
+                }
+
+
+        return view('admin.admin_setting');}
+
+        public function updateadmin(Request $request)
+    {
+        //dd($request->all());
+        if($request->isMethod('post')){
+            $data =$request->all();
+
+
+            // Update the name field
+            Admin::where('id', Auth::guard('admin')->user()->id)->update([
+                'name' => $data['name'],
+
+            'email' =>$data['email'],
+
+
+            ]);return redirect()->back()->with('succes_message',
+            'profile update succesfuly');
 
                 }
 

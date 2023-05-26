@@ -5,15 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Offres;
 use App\Models\Maitrestage;
+use Auth;
 
 class OffresController extends Controller
 
 {
     public function index()
     {
-        $offres = Offres::all();
+        $maitrestId = Auth::guard('maitrestage')->id();
+    $offres = Offres::where('maitrestages_id', $maitrestId)->get();
 
-        return view('offres.index', compact('offres'));
+    $offreIds = $offres->pluck('id');
+
+    // Retrieve the specific offer elements
+    $offreElements = OffreElement::whereIn('offre_id', $offreIds)->get();
+
+        return view('offres.index', compact('offres','offreElements'));
     }
 
     public function indexetidiant()
@@ -23,10 +30,11 @@ class OffresController extends Controller
         return view('offres.indexetidiant', compact('offres'));
     }
 
-    public function create()
+    public function create( )
     {
-        $maitrestage = maitrestage ::all();
-        return view('offres.create', compact('maitrestage'));
+        $maitrestId = Auth::guard('maitrestage')->id();
+
+        return view('offres.create', compact('maitrestId'));
     }
 
     public function store(Request $request)
@@ -34,10 +42,13 @@ class OffresController extends Controller
 
         $validatedData = $request->validate([
             'datedebut' => 'required',
+            'datefinish' => 'required',
             'maitrestages_id' => 'required|exists:maitrestages,id',
-            'dure' => 'required',
+            'period' => 'required',
             'nmbrpostes' => 'required',
             'poste' => 'required',
+            'diplome' => 'required',
+            'theme' => 'required',
         ]);
 
         $offres = Offres::create($validatedData);

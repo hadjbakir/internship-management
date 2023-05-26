@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Maitrestage;
 use App\Models\Demande;
 use App\Models\Seance;
+use App\Models\entrp;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
 use Auth;
@@ -28,7 +29,9 @@ class MaitrestController extends Controller
 
     public function showcalender(Demande $demande){
         $seances = Seance::where('demande_id', $demande->id)->get();
-        return view('calender.calender', compact('seances'));
+
+        $demandeId = $demande->id;
+        return view('calender.calender', compact('seances','demandeId'));
 
 
 
@@ -45,9 +48,13 @@ class MaitrestController extends Controller
 
         ]);
 
-        $seances = Seance::create($validatedData);
 
-        return redirect()->route('calender.show',compact('seances'))->with('success', 'seance created successfully.');
+        $seances = Seance::create($validatedData);
+        $demandeId = $validatedData['demande_id'];
+        $seances = Seance::where('demande_id', $demandeId)->get();
+
+
+        return view('calender.calender',compact('seances','demandeId'))->with('success', 'seance created successfully.');
     }
 
     public function destroycalender(Seance $seance)
@@ -71,13 +78,13 @@ class MaitrestController extends Controller
                     'passwords update succesfuly');
 
                 }else{
-                    return redirect()->back()->with('error_message',
+                    return redirect()->back()->with('succes_message',
                     'passwords not match');
                 }
 
             }else{
 
-                return redirect()->back()->with('error_message','current password
+                return redirect()->back()->with('succes_message','current password
                 is incorrect');
             }
 
@@ -125,6 +132,8 @@ class MaitrestController extends Controller
 
      public function MaitrestRegisterCreatefmet(Request $request){
         // dd($request->all());
+
+        $entrp = entrp ::all();
         Maitrestage::insert([
          'entrp_id'=>$request->entrp_id,
          'name'=>$request->name,
@@ -132,8 +141,9 @@ class MaitrestController extends Controller
          'password'=>Hash::make($request->password),
          'Created_at'=> Carbon::now(),
         ]);
-        return redirect()->back()->with
-        ('error','maitrest created Successfully');
+        return redirect()->back()->with('error', 'maitrest created Successfully')
+        ->with(compact('entrp'));
+;
 
      }
 
